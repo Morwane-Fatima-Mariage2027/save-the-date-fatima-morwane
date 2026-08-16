@@ -3,18 +3,283 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Fatima & Morwane — Save the Date</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #111;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 650px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      inset: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.25),
+          rgba(0,0,0,0.05) 45%,
+          rgba(0,0,0,0.65)
+        );
+    }
+
+    .languages {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      z-index: 5;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .languages button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      opacity: 0.65;
+      font-size: 11px;
+    }
+
+    .languages button.active {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+    }
+
+    .save {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 12vw, 105px);
+      font-weight: normal;
+      margin: 0;
+      line-height: 0.95;
+    }
+
+    h1 span {
+      font-style: italic;
+      font-size: 0.55em;
+    }
+
+    .line {
+      width: 65px;
+      height: 1px;
+      background: white;
+      margin: 25px 0;
+      opacity: 0.8;
+    }
+
+    .date {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      letter-spacing: 4px;
+      margin: 0;
+    }
+
+    .place {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-top: 12px;
+    }
+
+    .note {
+      margin-top: 35px;
+      font-size: 17px;
+      font-style: italic;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      font-size: 20px;
+      animation: float 2s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+
+      50% {
+        transform: translate(-50%, 7px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero img {
+        object-position: center;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .date {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .place {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Fatima & Morwane</h1>
+  <section class="hero">
 
-  <h2>SAVE THE DATE</h2>
+    <img
+      src="IMG-20220709-WA0029_Original.jpeg"
+      alt="Fatima et Morwane dans le désert"
+    >
 
-  <p>25 — 26 MAI 2027</p>
+    <div class="overlay"></div>
 
-  <p>MARRAKECH · MAROC</p>
+    <div class="languages">
+      <button class="active" onclick="changeLanguage('fr')">FR</button>
+      ·
+      <button onclick="changeLanguage('en')">EN</button>
+      ·
+      <button onclick="changeLanguage('ar')">العربية</button>
+    </div>
+
+    <div class="content">
+
+      <div class="save" id="save">
+        SAVE THE DATE
+      </div>
+
+      <h1>
+        Fatima <span>&</span> Morwane
+      </h1>
+
+      <div class="line"></div>
+
+      <p class="date" id="date">
+        25 — 26 MAI 2027
+      </p>
+
+      <p class="place" id="place">
+        MARRAKECH · MAROC
+      </p>
+
+      <p class="note" id="note">
+        L’invitation officielle suivra
+      </p>
+
+    </div>
+
+    <div class="scroll">
+      ↓
+    </div>
+
+  </section>
+
+  <script>
+
+    function changeLanguage(language) {
+
+      const save = document.getElementById("save");
+      const date = document.getElementById("date");
+      const place = document.getElementById("place");
+      const note = document.getElementById("note");
+
+      document.querySelectorAll(".languages button")
+        .forEach(button => button.classList.remove("active"));
+
+      if (language === "fr") {
+
+        save.innerText = "SAVE THE DATE";
+        date.innerText = "25 — 26 MAI 2027";
+        place.innerText = "MARRAKECH · MAROC";
+        note.innerText = "L’invitation officielle suivra";
+
+        document.documentElement.dir = "ltr";
+
+      }
+
+      if (language === "en") {
+
+        save.innerText = "SAVE THE DATE";
+        date.innerText = "25 — 26 MAY 2027";
+        place.innerText = "MARRAKECH · MOROCCO";
+        note.innerText = "The official invitation will follow";
+
+        document.documentElement.dir = "ltr";
+
+      }
+
+      if (language === "ar") {
+
+        save.innerText = "احفظوا التاريخ";
+        date.innerText = "25 — 26 مايو 2027";
+        place.innerText = "مراكش · المغرب";
+        note.innerText = "ستصلكم الدعوة الرسمية لاحقًا";
+
+        document.documentElement.dir = "rtl";
+
+      }
+
+      event.target.classList.add("active");
+    }
+
+  </script>
 
 </body>
 </html>
