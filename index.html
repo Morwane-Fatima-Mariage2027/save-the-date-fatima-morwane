@@ -7,78 +7,88 @@
   <title>Fatima & Morwane — Save the Date</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap');
+
     * {
       box-sizing: border-box;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #111;
-      color: white;
+      margin: 0;
+      background: #f5f0e8;
+      color: #28231e;
+      font-family: "Montserrat", sans-serif;
       overflow-x: hidden;
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 650px;
+      height: 100svh;
+      min-height: 680px;
       overflow: hidden;
+      color: white;
     }
 
-    .hero img {
+    .hero-image {
       position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      inset: 0;
+      object-position: center center;
+      animation: zoomIn 2s ease forwards;
     }
 
-    .overlay {
+    .hero-overlay {
       position: absolute;
       inset: 0;
       background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,0.25),
-          rgba(0,0,0,0.05) 45%,
-          rgba(0,0,0,0.65)
+          rgba(0,0,0,0.20),
+          rgba(0,0,0,0.03) 40%,
+          rgba(0,0,0,0.68)
         );
     }
 
     .languages {
       position: absolute;
-      top: 25px;
+      top: 28px;
       right: 25px;
       z-index: 5;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
       letter-spacing: 2px;
     }
 
     .languages button {
-      background: none;
-      border: none;
+      border: 0;
+      background: transparent;
       color: white;
+      padding: 4px;
+      font: inherit;
+      font-size: 10px;
+      letter-spacing: 2px;
+      opacity: .65;
       cursor: pointer;
-      opacity: 0.65;
-      font-size: 11px;
     }
 
     .languages button.active {
       opacity: 1;
-      text-decoration: underline;
+      border-bottom: 1px solid white;
     }
 
-    .content {
+    .hero-content {
       position: absolute;
       inset: 0;
       z-index: 3;
@@ -88,53 +98,55 @@
       justify-content: center;
       text-align: center;
       padding: 30px;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      animation: fadeUp 1.5s .2s ease both;
     }
 
-    .save {
-      font-family: Arial, sans-serif;
-      font-size: 11px;
+    .eyebrow {
+      margin: 0 0 17px;
+      font-size: 10px;
       letter-spacing: 5px;
-      margin-bottom: 18px;
+      font-weight: 400;
     }
 
-    h1 {
-      font-size: clamp(55px, 12vw, 105px);
-      font-weight: normal;
+    .names {
       margin: 0;
-      line-height: 0.95;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(52px, 14vw, 105px);
+      line-height: .88;
+      font-weight: 400;
+      letter-spacing: -1px;
     }
 
-    h1 span {
+    .names .amp {
+      font-size: .55em;
       font-style: italic;
-      font-size: 0.55em;
+      margin: 0 5px;
     }
 
-    .line {
+    .hero-line {
       width: 65px;
       height: 1px;
-      background: white;
-      margin: 25px 0;
-      opacity: 0.8;
+      background: rgba(255,255,255,.85);
+      margin: 28px 0 22px;
     }
 
-    .date {
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      letter-spacing: 4px;
+    .hero-date {
       margin: 0;
-    }
-
-    .place {
-      font-family: Arial, sans-serif;
-      font-size: 10px;
+      font-size: 13px;
       letter-spacing: 4px;
-      margin-top: 12px;
+      font-weight: 400;
     }
 
-    .note {
-      margin-top: 35px;
-      font-size: 17px;
+    .hero-place {
+      margin: 11px 0 0;
+      font-size: 9px;
+      letter-spacing: 4px;
+    }
+
+    .hero-note {
+      margin: 38px 0 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
       font-style: italic;
     }
 
@@ -142,13 +154,224 @@
       position: absolute;
       bottom: 25px;
       left: 50%;
+      z-index: 4;
       transform: translateX(-50%);
-      z-index: 5;
       font-size: 20px;
-      animation: float 2s infinite;
+      animation: floating 2s ease-in-out infinite;
     }
 
-    @keyframes float {
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section:not(.hero) {
+      padding: 85px 24px;
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .small-title {
+      margin: 0 0 15px;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(42px, 10vw, 72px);
+      font-weight: 400;
+      line-height: .95;
+    }
+
+    .section-text {
+      max-width: 600px;
+      margin: 25px auto 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 21px;
+      line-height: 1.55;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      background: #f5f0e8;
+    }
+
+    .intro-decoration {
+      width: 45px;
+      height: 1px;
+      background: #6d6255;
+      margin: 28px auto;
+      opacity: .55;
+    }
+
+    /* =========================
+       DATE SECTION
+    ========================= */
+
+    .date-section {
+      background: #e9dfd0;
+    }
+
+    .big-date {
+      margin: 25px 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(55px, 13vw, 100px);
+      font-weight: 400;
+      line-height: .9;
+    }
+
+    .date-month {
+      font-size: 13px;
+      letter-spacing: 4px;
+      margin-top: 17px;
+    }
+
+    .location {
+      margin-top: 35px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+    }
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
+
+    .countdown-section {
+      background: #28231e;
+      color: white;
+    }
+
+    .countdown-section .small-title {
+      opacity: .7;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 650px;
+      margin: 45px auto 0;
+      gap: 10px;
+    }
+
+    .count-item {
+      text-align: center;
+    }
+
+    .count-number {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 9vw, 65px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .count-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 8px;
+      letter-spacing: 2px;
+      opacity: .65;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    .message {
+      background: #f5f0e8;
+    }
+
+    .quote {
+      max-width: 650px;
+      margin: 30px auto 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(25px, 6vw, 38px);
+      line-height: 1.25;
+      font-style: italic;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 45px 20px;
+      background: #e9dfd0;
+      text-align: center;
+    }
+
+    .footer-names {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 35px;
+    }
+
+    .footer-date {
+      margin-top: 10px;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       ARABIC
+    ========================= */
+
+    [dir="rtl"] {
+      font-family: "Noto Naskh Arabic", serif;
+    }
+
+    [dir="rtl"] .languages {
+      right: auto;
+      left: 25px;
+    }
+
+    [dir="rtl"] .eyebrow,
+    [dir="rtl"] .hero-date,
+    [dir="rtl"] .hero-place,
+    [dir="rtl"] .small-title,
+    [dir="rtl"] .date-month,
+    [dir="rtl"] .footer-date {
+      letter-spacing: 0;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.05);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floating {
       0%, 100% {
         transform: translate(-50%, 0);
       }
@@ -158,23 +381,63 @@
       }
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 600px) {
-      .hero img {
-        object-position: center;
+
+      .hero {
+        min-height: 700px;
       }
 
-      h1 {
+      .hero-image {
+        object-position: center center;
+      }
+
+      .languages {
+        top: 22px;
+        right: 18px;
+      }
+
+      .names {
         font-size: 58px;
       }
 
-      .date {
-        font-size: 12px;
-        letter-spacing: 2px;
+      .hero-date {
+        font-size: 11px;
+        letter-spacing: 2.5px;
       }
 
-      .place {
-        font-size: 9px;
-        letter-spacing: 2px;
+      .hero-place {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+      }
+
+      .hero-note {
+        margin-top: 30px;
+        font-size: 17px;
+      }
+
+      section:not(.hero) {
+        padding: 75px 22px;
+      }
+
+      .section-text {
+        font-size: 19px;
+      }
+
+      .countdown {
+        gap: 4px;
+      }
+
+      .count-number {
+        font-size: 39px;
+      }
+
+      .count-label {
+        font-size: 7px;
+        letter-spacing: 1px;
       }
     }
   </style>
@@ -182,44 +445,49 @@
 
 <body>
 
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <section class="hero">
 
     <img
+      class="hero-image"
       src="IMG-20220709-WA0029_Original.jpeg"
       alt="Fatima et Morwane dans le désert"
     >
 
-    <div class="overlay"></div>
+    <div class="hero-overlay"></div>
 
     <div class="languages">
       <button class="active" onclick="changeLanguage('fr')">FR</button>
-      ·
+      <span>·</span>
       <button onclick="changeLanguage('en')">EN</button>
-      ·
+      <span>·</span>
       <button onclick="changeLanguage('ar')">العربية</button>
     </div>
 
-    <div class="content">
+    <div class="hero-content">
 
-      <div class="save" id="save">
+      <p class="eyebrow" id="save">
         SAVE THE DATE
-      </div>
+      </p>
 
-      <h1>
-        Fatima <span>&</span> Morwane
+      <h1 class="names">
+        Fatima <span class="amp">&</span> Morwane
       </h1>
 
-      <div class="line"></div>
+      <div class="hero-line"></div>
 
-      <p class="date" id="date">
+      <p class="hero-date" id="heroDate">
         25 — 26 MAI 2027
       </p>
 
-      <p class="place" id="place">
+      <p class="hero-place" id="heroPlace">
         MARRAKECH · MAROC
       </p>
 
-      <p class="note" id="note">
+      <p class="hero-note" id="heroNote">
         L’invitation officielle suivra
       </p>
 
@@ -231,52 +499,319 @@
 
   </section>
 
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="intro">
+
+    <div class="section-inner">
+
+      <p class="small-title" id="introSmall">
+        Une invitation
+      </p>
+
+      <h2 class="section-title" id="introTitle">
+        Une date à retenir
+      </h2>
+
+      <div class="intro-decoration"></div>
+
+      <p class="section-text" id="introText">
+        Deux jours de célébration,
+        dans une destination qui nous tient à cœur.
+        Nous avons hâte de partager ces moments avec vous.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DATE
+  ========================= -->
+
+  <section class="date-section">
+
+    <div class="section-inner">
+
+      <p class="small-title" id="dateSmall">
+        Le rendez-vous
+      </p>
+
+      <div class="big-date">
+        25 — 26
+      </div>
+
+      <div class="date-month" id="month">
+        MAI 2027
+      </div>
+
+      <div class="location">
+        Marrakech, Maroc
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COUNTDOWN
+  ========================= -->
+
+  <section class="countdown-section">
+
+    <div class="section-inner">
+
+      <p class="small-title" id="countSmall">
+        Le compte à rebours
+      </p>
+
+      <h2 class="section-title" id="countTitle">
+        Bientôt...
+      </h2>
+
+      <div class="countdown">
+
+        <div class="count-item">
+          <span class="count-number" id="days">0</span>
+          <span class="count-label" id="daysLabel">Jours</span>
+        </div>
+
+        <div class="count-item">
+          <span class="count-number" id="hours">0</span>
+          <span class="count-label" id="hoursLabel">Heures</span>
+        </div>
+
+        <div class="count-item">
+          <span class="count-number" id="minutes">0</span>
+          <span class="count-label" id="minutesLabel">Minutes</span>
+        </div>
+
+        <div class="count-item">
+          <span class="count-number" id="seconds">0</span>
+          <span class="count-label" id="secondsLabel">Secondes</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MESSAGE
+  ========================= -->
+
+  <section class="message">
+
+    <div class="section-inner">
+
+      <p class="small-title" id="messageSmall">
+        À très bientôt
+      </p>
+
+      <div class="quote" id="messageText">
+        « Une nouvelle aventure nous attend à Marrakech. »
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-names">
+      Fatima & Morwane
+    </div>
+
+    <div class="footer-date">
+      25 — 26 MAI 2027 · MARRAKECH
+    </div>
+
+  </footer>
+
+
   <script>
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
+
+    const weddingDate = new Date("2027-05-25T00:00:00").getTime();
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
+        return;
+      }
+
+      const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+      const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+
+      const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
+
+      const seconds = Math.floor(
+        (difference / 1000) % 60
+      );
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+
+    /* =========================
+       LANGUAGES
+    ========================= */
 
     function changeLanguage(language) {
 
-      const save = document.getElementById("save");
-      const date = document.getElementById("date");
-      const place = document.getElementById("place");
-      const note = document.getElementById("note");
-
-      document.querySelectorAll(".languages button")
+      document
+        .querySelectorAll(".languages button")
         .forEach(button => button.classList.remove("active"));
 
-      if (language === "fr") {
-
-        save.innerText = "SAVE THE DATE";
-        date.innerText = "25 — 26 MAI 2027";
-        place.innerText = "MARRAKECH · MAROC";
-        note.innerText = "L’invitation officielle suivra";
-
-        document.documentElement.dir = "ltr";
-
-      }
-
-      if (language === "en") {
-
-        save.innerText = "SAVE THE DATE";
-        date.innerText = "25 — 26 MAY 2027";
-        place.innerText = "MARRAKECH · MOROCCO";
-        note.innerText = "The official invitation will follow";
-
-        document.documentElement.dir = "ltr";
-
-      }
-
-      if (language === "ar") {
-
-        save.innerText = "احفظوا التاريخ";
-        date.innerText = "25 — 26 مايو 2027";
-        place.innerText = "مراكش · المغرب";
-        note.innerText = "ستصلكم الدعوة الرسمية لاحقًا";
-
-        document.documentElement.dir = "rtl";
-
-      }
-
       event.target.classList.add("active");
+
+      const texts = {
+
+        fr: {
+
+          save: "SAVE THE DATE",
+          heroDate: "25 — 26 MAI 2027",
+          heroPlace: "MARRAKECH · MAROC",
+          heroNote: "L’invitation officielle suivra",
+
+          introSmall: "Une invitation",
+          introTitle: "Une date à retenir",
+          introText:
+            "Deux jours de célébration, dans une destination qui nous tient à cœur. Nous avons hâte de partager ces moments avec vous.",
+
+          dateSmall: "Le rendez-vous",
+          month: "MAI 2027",
+
+          countSmall: "Le compte à rebours",
+          countTitle: "Bientôt...",
+          days: "Jours",
+          hours: "Heures",
+          minutes: "Minutes",
+          seconds: "Secondes",
+
+          messageSmall: "À très bientôt",
+          messageText:
+            "« Une nouvelle aventure nous attend à Marrakech. »"
+        },
+
+        en: {
+
+          save: "SAVE THE DATE",
+          heroDate: "25 — 26 MAY 2027",
+          heroPlace: "MARRAKECH · MOROCCO",
+          heroNote: "The official invitation will follow",
+
+          introSmall: "An invitation",
+          introTitle: "A date to remember",
+          introText:
+            "Two days of celebration, in a destination close to our hearts. We cannot wait to share these moments with you.",
+
+          dateSmall: "The date",
+          month: "MAY 2027",
+
+          countSmall: "The countdown",
+          countTitle: "Coming soon...",
+          days: "Days",
+          hours: "Hours",
+          minutes: "Minutes",
+          seconds: "Seconds",
+
+          messageSmall: "See you soon",
+          messageText:
+            "“A new adventure awaits us in Marrakech.”"
+        },
+
+        ar: {
+
+          save: "احفظوا التاريخ",
+          heroDate: "25 — 26 مايو 2027",
+          heroPlace: "مراكش · المغرب",
+          heroNote: "ستصلكم الدعوة الرسمية لاحقًا",
+
+          introSmall: "دعوة",
+          introTitle: "موعد يستحق أن نتذكره",
+          introText:
+            "يومان من الاحتفال في وجهة عزيزة على قلوبنا. نتطلع إلى مشاركة هذه اللحظات معكم.",
+
+          dateSmall: "الموعد",
+          month: "مايو 2027",
+
+          countSmall: "العد التنازلي",
+          countTitle: "قريبًا...",
+          days: "يوم",
+          hours: "ساعة",
+          minutes: "دقيقة",
+          seconds: "ثانية",
+
+          messageSmall: "إلى اللقاء قريبًا",
+          messageText:
+            "« مغامرة جديدة تنتظرنا في مراكش. »"
+        }
+
+      };
+
+      const t = texts[language];
+
+      document.getElementById("save").innerText = t.save;
+      document.getElementById("heroDate").innerText = t.heroDate;
+      document.getElementById("heroPlace").innerText = t.heroPlace;
+      document.getElementById("heroNote").innerText = t.heroNote;
+
+      document.getElementById("introSmall").innerText = t.introSmall;
+      document.getElementById("introTitle").innerText = t.introTitle;
+      document.getElementById("introText").innerText = t.introText;
+
+      document.getElementById("dateSmall").innerText = t.dateSmall;
+      document.getElementById("month").innerText = t.month;
+
+      document.getElementById("countSmall").innerText = t.countSmall;
+      document.getElementById("countTitle").innerText = t.countTitle;
+
+      document.getElementById("daysLabel").innerText = t.days;
+      document.getElementById("hoursLabel").innerText = t.hours;
+      document.getElementById("minutesLabel").innerText = t.minutes;
+      document.getElementById("secondsLabel").innerText = t.seconds;
+
+      document.getElementById("messageSmall").innerText = t.messageSmall;
+      document.getElementById("messageText").innerText = t.messageText;
+
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     }
 
   </script>
