@@ -1,820 +1,727 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Fatima & Morwane — Save the Date</title>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #f5f0e8;
-      color: #28231e;
-      font-family: "Montserrat", sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      position: relative;
-      height: 100svh;
-      min-height: 680px;
-      overflow: hidden;
-      color: white;
-    }
-
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      animation: zoomIn 2s ease forwards;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.20),
-          rgba(0,0,0,0.03) 40%,
-          rgba(0,0,0,0.68)
-        );
-    }
-
-    .languages {
-      position: absolute;
-      top: 28px;
-      right: 25px;
-      z-index: 5;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .languages button {
-      border: 0;
-      background: transparent;
-      color: white;
-      padding: 4px;
-      font: inherit;
-      font-size: 10px;
-      letter-spacing: 2px;
-      opacity: .65;
-      cursor: pointer;
-    }
-
-    .languages button.active {
-      opacity: 1;
-      border-bottom: 1px solid white;
-    }
-
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
-      animation: fadeUp 1.5s .2s ease both;
-    }
-
-    .eyebrow {
-      margin: 0 0 17px;
-      font-size: 10px;
-      letter-spacing: 5px;
-      font-weight: 400;
-    }
-
-    .names {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(52px, 14vw, 105px);
-      line-height: .88;
-      font-weight: 400;
-      letter-spacing: -1px;
-    }
-
-    .names .amp {
-      font-size: .55em;
-      font-style: italic;
-      margin: 0 5px;
-    }
-
-    .hero-line {
-      width: 65px;
-      height: 1px;
-      background: rgba(255,255,255,.85);
-      margin: 28px 0 22px;
-    }
-
-    .hero-date {
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: 4px;
-      font-weight: 400;
-    }
-
-    .hero-place {
-      margin: 11px 0 0;
-      font-size: 9px;
-      letter-spacing: 4px;
-    }
-
-    .hero-note {
-      margin: 38px 0 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 19px;
-      font-style: italic;
-    }
-
-    .scroll {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      z-index: 4;
-      transform: translateX(-50%);
-      font-size: 20px;
-      animation: floating 2s ease-in-out infinite;
-    }
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section:not(.hero) {
-      padding: 85px 24px;
-    }
-
-    .section-inner {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .small-title {
-      margin: 0 0 15px;
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 10vw, 72px);
-      font-weight: 400;
-      line-height: .95;
-    }
-
-    .section-text {
-      max-width: 600px;
-      margin: 25px auto 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 21px;
-      line-height: 1.55;
-    }
-
-    /* =========================
-       INTRO
-    ========================= */
-
-    .intro {
-      background: #f5f0e8;
-    }
-
-    .intro-decoration {
-      width: 45px;
-      height: 1px;
-      background: #6d6255;
-      margin: 28px auto;
-      opacity: .55;
-    }
-
-    /* =========================
-       DATE SECTION
-    ========================= */
-
-    .date-section {
-      background: #e9dfd0;
-    }
-
-    .big-date {
-      margin: 25px 0 10px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(55px, 13vw, 100px);
-      font-weight: 400;
-      line-height: .9;
-    }
-
-    .date-month {
-      font-size: 13px;
-      letter-spacing: 4px;
-      margin-top: 17px;
-    }
-
-    .location {
-      margin-top: 35px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 27px;
-    }
-
-    /* =========================
-       COUNTDOWN
-    ========================= */
-
-    .countdown-section {
-      background: #28231e;
-      color: white;
-    }
-
-    .countdown-section .small-title {
-      opacity: .7;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      max-width: 650px;
-      margin: 45px auto 0;
-      gap: 10px;
-    }
-
-    .count-item {
-      text-align: center;
-    }
-
-    .count-number {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(38px, 9vw, 65px);
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .count-label {
-      display: block;
-      margin-top: 8px;
-      font-size: 8px;
-      letter-spacing: 2px;
-      opacity: .65;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       MESSAGE
-    ========================= */
-
-    .message {
-      background: #f5f0e8;
-    }
-
-    .quote {
-      max-width: 650px;
-      margin: 30px auto 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(25px, 6vw, 38px);
-      line-height: 1.25;
-      font-style: italic;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      padding: 45px 20px;
-      background: #e9dfd0;
-      text-align: center;
-    }
-
-    .footer-names {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 35px;
-    }
-
-    .footer-date {
-      margin-top: 10px;
-      font-size: 9px;
-      letter-spacing: 3px;
-    }
-
-    /* =========================
-       ARABIC
-    ========================= */
-
-    [dir="rtl"] {
-      font-family: "Noto Naskh Arabic", serif;
-    }
-
-    [dir="rtl"] .languages {
-      right: auto;
-      left: 25px;
-    }
-
-    [dir="rtl"] .eyebrow,
-    [dir="rtl"] .hero-date,
-    [dir="rtl"] .hero-place,
-    [dir="rtl"] .small-title,
-    [dir="rtl"] .date-month,
-    [dir="rtl"] .footer-date {
-      letter-spacing: 0;
-    }
-
-    /* =========================
-       ANIMATIONS
-    ========================= */
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(1.05);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes floating {
-      0%, 100% {
-        transform: translate(-50%, 0);
-      }
-
-      50% {
-        transform: translate(-50%, 7px);
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-      .hero {
-        min-height: 700px;
-      }
-
-      .hero-image {
-        object-position: center center;
-      }
-
-      .languages {
-        top: 22px;
-        right: 18px;
-      }
-
-      .names {
-        font-size: 58px;
-      }
-
-      .hero-date {
-        font-size: 11px;
-        letter-spacing: 2.5px;
-      }
-
-      .hero-place {
-        font-size: 8px;
-        letter-spacing: 2.5px;
-      }
-
-      .hero-note {
-        margin-top: 30px;
-        font-size: 17px;
-      }
-
-      section:not(.hero) {
-        padding: 75px 22px;
-      }
-
-      .section-text {
-        font-size: 19px;
-      }
-
-      .countdown {
-        gap: 4px;
-      }
-
-      .count-number {
-        font-size: 39px;
-      }
-
-      .count-label {
-        font-size: 7px;
-        letter-spacing: 1px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Morwane Joulia & Fatima Akotey — Save the Date</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #171411;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.12) 0%,
+      rgba(0,0,0,0.05) 35%,
+      rgba(0,0,0,0.38) 65%,
+      rgba(0,0,0,0.78) 100%
+    ),
+    url('IMG-20220709-WA0029_Original.jpeg');
+
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.10),
+      transparent 35%,
+      rgba(0,0,0,0.55) 100%
+    );
+  pointer-events: none;
+}
+
+/* =========================
+   LANGUAGES
+========================= */
+
+.languages {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+
+  display: flex;
+  gap: 13px;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+.languages button {
+  border: none;
+  background: none;
+  color: rgba(255,255,255,0.65);
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.languages button.active,
+.languages button:hover {
+  color: white;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  max-width: 700px;
+
+  padding: 100px 25px 95px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SAVE THE DATE */
+
+.save-label {
+  font-size: 12px;
+  letter-spacing: 7px;
+  font-weight: 400;
+  margin-bottom: 25px;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* NAMES */
+
+.names {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(3.1rem, 13vw, 6.2rem);
+
+  line-height: 0.82;
+  font-weight: 500;
+
+  letter-spacing: -2px;
+
+  max-width: 600px;
+
+  text-shadow:
+    0 3px 20px rgba(0,0,0,0.75),
+    0 1px 4px rgba(0,0,0,0.8);
+
+  margin-bottom: 28px;
+}
+
+.names .amp {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* LINE */
+
+.hero-line {
+  width: 95px;
+  height: 1px;
+  background: rgba(255,255,255,0.85);
+  margin-bottom: 25px;
+}
+
+/* DATE */
+
+.hero-date {
+  font-size: 16px;
+  letter-spacing: 5px;
+  font-weight: 400;
+
+  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
+
+  margin-bottom: 14px;
+}
+
+/* PLACE */
+
+.hero-place {
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 400;
+
+  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
+}
+
+/* =========================
+   PERSONAL MESSAGE
+========================= */
+
+.personal-note {
+  margin-top: 42px;
+
+  max-width: 480px;
+
+  padding: 15px 20px;
+
+  border-top: 1px solid rgba(255,255,255,0.35);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.45;
+  font-style: italic;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+
+  background: rgba(0,0,0,0.12);
+  backdrop-filter: blur(2px);
+}
+
+/* =========================
+   OFFICIAL INVITATION
+========================= */
+
+.follow {
+  margin-top: 25px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section {
+  background: #f4efe7;
+  color: #29221d;
+
+  padding: 75px 20px;
+
+  text-align: center;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+
+  opacity: 0.7;
+}
+
+.countdown-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 500;
+
+  margin-bottom: 38px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 5vw, 45px);
+  flex-wrap: wrap;
+}
+
+.time-box {
+  min-width: 65px;
+}
+
+.time-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.3rem, 9vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.time-label {
+  margin-top: 8px;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  opacity: 0.65;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #171411;
+  color: rgba(255,255,255,0.75);
+
+  text-align: center;
+
+  padding: 45px 20px 50px;
+
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.footer-names {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.footer-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  opacity: 0.6;
+}
+
+/* =========================
+   SCROLL ARROW
+========================= */
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 8;
+
+  width: 28px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  color: white;
+
+  font-size: 22px;
+
+  animation: bounce 2s infinite;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 100svh;
+    background-position: center center;
+  }
+
+  .languages {
+    top: 20px;
+    right: 18px;
+  }
+
+  .hero-content {
+    padding:
+      105px
+      20px
+      85px;
+  }
+
+  .save-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
+  }
+
+  .names {
+    font-size: clamp(2.9rem, 14vw, 4.7rem);
+    line-height: 0.85;
+    letter-spacing: -1px;
+    max-width: 95%;
+    margin-bottom: 24px;
+  }
+
+  .hero-date {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .hero-place {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .personal-note {
+    max-width: 330px;
+    font-size: 16px;
+    margin-top: 34px;
+    padding: 13px 14px;
+  }
+
+  .follow {
+    font-size: 17px;
+    margin-top: 20px;
+  }
+
+  .countdown-section {
+    padding: 60px 18px;
+  }
+
+  .countdown {
+    gap: 22px;
+  }
+}
+
+/* =========================
+   ARABIC
+========================= */
+
+html[dir="rtl"] .personal-note {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+html[dir="rtl"] .languages {
+  right: auto;
+  left: 24px;
+}
+
+html[dir="rtl"] .hero {
+  direction: rtl;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HERO
-  ========================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-  <section class="hero">
+<section class="hero">
 
-    <img
-      class="hero-image"
-      src="IMG-20220709-WA0029_Original.jpeg"
-      alt="Fatima et Morwane dans le désert"
-    >
+  <div class="languages">
+    <button id="frBtn" class="active" onclick="setLanguage('fr')">FR</button>
+    <span>·</span>
+    <button id="enBtn" onclick="setLanguage('en')">EN</button>
+    <span>·</span>
+    <button id="arBtn" onclick="setLanguage('ar')">العربية</button>
+  </div>
 
-    <div class="hero-overlay"></div>
+  <div class="hero-content">
 
-    <div class="languages">
-      <button class="active" onclick="changeLanguage('fr')">FR</button>
-      <span>·</span>
-      <button onclick="changeLanguage('en')">EN</button>
-      <span>·</span>
-      <button onclick="changeLanguage('ar')">العربية</button>
+    <p class="save-label" id="saveLabel">
+      SAVE THE DATE
+    </p>
+
+    <h1 class="names">
+      <span id="name1">Morwane Joulia</span>
+      <span class="amp">&amp;</span>
+      <span id="name2">Fatima Akotey</span>
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-date">
+      25 — 26 MAI 2027
+    </p>
+
+    <p class="hero-place" id="place">
+      MARRAKECH · MAROC
+    </p>
+
+    <div class="personal-note" id="personalNote">
+      Ce Save the Date est personnel et nominatif.
+      Il est exclusivement destiné à la personne qui le reçoit
+      et ne peut être transféré.
     </div>
 
-    <div class="hero-content">
+    <p class="follow" id="followText">
+      L’invitation officielle suivra
+    </p>
 
-      <p class="eyebrow" id="save">
-        SAVE THE DATE
-      </p>
+  </div>
 
-      <h1 class="names">
-        Fatima <span class="amp">&</span> Morwane
-      </h1>
+  <div class="scroll-arrow">
+    ↓
+  </div>
 
-      <div class="hero-line"></div>
+</section>
 
-      <p class="hero-date" id="heroDate">
-        25 — 26 MAI 2027
-      </p>
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
-      <p class="hero-place" id="heroPlace">
-        MARRAKECH · MAROC
-      </p>
+<section class="countdown-section">
 
-      <p class="hero-note" id="heroNote">
-        L’invitation officielle suivra
-      </p>
+  <p class="section-label" id="countdownLabel">
+    Le compte à rebours commence
+  </p>
 
+  <h2 class="countdown-title" id="countdownTitle">
+    Plus que...
+  </h2>
+
+  <div class="countdown">
+
+    <div class="time-box">
+      <div class="time-number" id="days">0</div>
+      <div class="time-label" id="daysLabel">jours</div>
     </div>
 
-    <div class="scroll">
-      ↓
+    <div class="time-box">
+      <div class="time-number" id="hours">0</div>
+      <div class="time-label" id="hoursLabel">heures</div>
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       INTRO
-  ========================= -->
-
-  <section class="intro">
-
-    <div class="section-inner">
-
-      <p class="small-title" id="introSmall">
-        Une invitation
-      </p>
-
-      <h2 class="section-title" id="introTitle">
-        Une date à retenir
-      </h2>
-
-      <div class="intro-decoration"></div>
-
-      <p class="section-text" id="introText">
-        Deux jours de célébration,
-        dans une destination qui nous tient à cœur.
-        Nous avons hâte de partager ces moments avec vous.
-      </p>
-
+    <div class="time-box">
+      <div class="time-number" id="minutes">0</div>
+      <div class="time-label" id="minutesLabel">minutes</div>
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       DATE
-  ========================= -->
-
-  <section class="date-section">
-
-    <div class="section-inner">
-
-      <p class="small-title" id="dateSmall">
-        Le rendez-vous
-      </p>
-
-      <div class="big-date">
-        25 — 26
-      </div>
-
-      <div class="date-month" id="month">
-        MAI 2027
-      </div>
-
-      <div class="location">
-        Marrakech, Maroc
-      </div>
-
+    <div class="time-box">
+      <div class="time-number" id="seconds">0</div>
+      <div class="time-label" id="secondsLabel">secondes</div>
     </div>
 
-  </section>
+  </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+  <div class="footer-names">
+    Morwane Joulia &amp; Fatima Akotey
+  </div>
+
+  <div class="footer-date">
+    25 — 26 MAI 2027 · MARRAKECH, MAROC
+  </div>
+
+</footer>
+
+<script>
+
+/* =========================
+   TRANSLATIONS
+========================= */
+
+const translations = {
+
+  fr: {
+    save: "SAVE THE DATE",
+    place: "MARRAKECH · MAROC",
+    note:
+      "Ce Save the Date est personnel et nominatif. Il est exclusivement destiné à la personne qui le reçoit et ne peut être transféré.",
+    follow: "L’invitation officielle suivra",
+    countdownLabel: "Le compte à rebours commence",
+    countdownTitle: "Plus que...",
+    days: "jours",
+    hours: "heures",
+    minutes: "minutes",
+    seconds: "secondes"
+  },
 
+  en: {
+    save: "SAVE THE DATE",
+    place: "MARRAKECH · MOROCCO",
+    note:
+      "This Save the Date is personal and nominative. It is intended exclusively for the person who receives it and may not be transferred.",
+    follow: "The official invitation will follow",
+    countdownLabel: "The countdown begins",
+    countdownTitle: "Only...",
+    days: "days",
+    hours: "hours",
+    minutes: "minutes",
+    seconds: "seconds"
+  },
 
-  <!-- =========================
-       COUNTDOWN
-  ========================= -->
+  ar: {
+    save: "احفظوا التاريخ",
+    place: "مراكش · المغرب",
+    note:
+      "هذا الإعلان شخصي ومخصص للشخص الذي استلمه فقط، ولا يجوز تحويله أو مشاركته مع شخص آخر.",
+    follow: "ستصل الدعوة الرسمية لاحقًا",
+    countdownLabel: "العد التنازلي يبدأ",
+    countdownTitle: "متبقي...",
+    days: "يوم",
+    hours: "ساعة",
+    minutes: "دقيقة",
+    seconds: "ثانية"
+  }
 
-  <section class="countdown-section">
+};
 
-    <div class="section-inner">
 
-      <p class="small-title" id="countSmall">
-        Le compte à rebours
-      </p>
+/* =========================
+   LANGUAGE
+========================= */
 
-      <h2 class="section-title" id="countTitle">
-        Bientôt...
-      </h2>
+function setLanguage(language) {
 
-      <div class="countdown">
+  const t = translations[language];
 
-        <div class="count-item">
-          <span class="count-number" id="days">0</span>
-          <span class="count-label" id="daysLabel">Jours</span>
-        </div>
+  document.documentElement.lang = language;
 
-        <div class="count-item">
-          <span class="count-number" id="hours">0</span>
-          <span class="count-label" id="hoursLabel">Heures</span>
-        </div>
+  if (language === "ar") {
+    document.documentElement.dir = "rtl";
+  } else {
+    document.documentElement.dir = "ltr";
+  }
 
-        <div class="count-item">
-          <span class="count-number" id="minutes">0</span>
-          <span class="count-label" id="minutesLabel">Minutes</span>
-        </div>
+  document.getElementById("saveLabel").textContent = t.save;
+  document.getElementById("place").textContent = t.place;
+  document.getElementById("personalNote").textContent = t.note;
+  document.getElementById("followText").textContent = t.follow;
 
-        <div class="count-item">
-          <span class="count-number" id="seconds">0</span>
-          <span class="count-label" id="secondsLabel">Secondes</span>
-        </div>
+  document.getElementById("countdownLabel").textContent =
+    t.countdownLabel;
 
-      </div>
+  document.getElementById("countdownTitle").textContent =
+    t.countdownTitle;
 
-    </div>
+  document.getElementById("daysLabel").textContent =
+    t.days;
 
-  </section>
+  document.getElementById("hoursLabel").textContent =
+    t.hours;
 
+  document.getElementById("minutesLabel").textContent =
+    t.minutes;
 
-  <!-- =========================
-       MESSAGE
-  ========================= -->
+  document.getElementById("secondsLabel").textContent =
+    t.seconds;
 
-  <section class="message">
+  document
+    .querySelectorAll(".languages button")
+    .forEach(button => button.classList.remove("active"));
 
-    <div class="section-inner">
+  if (language === "fr") {
+    document.getElementById("frBtn").classList.add("active");
+  }
 
-      <p class="small-title" id="messageSmall">
-        À très bientôt
-      </p>
+  if (language === "en") {
+    document.getElementById("enBtn").classList.add("active");
+  }
 
-      <div class="quote" id="messageText">
-        « Une nouvelle aventure nous attend à Marrakech. »
-      </div>
+  if (language === "ar") {
+    document.getElementById("arBtn").classList.add("active");
+  }
 
-    </div>
+}
 
-  </section>
 
+/* =========================
+   COUNTDOWN
+========================= */
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+const weddingDate =
+  new Date("2027-05-25T18:00:00+01:00").getTime();
 
-  <footer>
+function updateCountdown() {
 
-    <div class="footer-names">
-      Fatima & Morwane
-    </div>
+  const now = new Date().getTime();
 
-    <div class="footer-date">
-      25 — 26 MAI 2027 · MARRAKECH
-    </div>
+  const distance = weddingDate - now;
 
-  </footer>
+  if (distance <= 0) {
 
+    document.getElementById("days").textContent = "0";
+    document.getElementById("hours").textContent = "0";
+    document.getElementById("minutes").textContent = "0";
+    document.getElementById("seconds").textContent = "0";
 
-  <script>
+    return;
+  }
 
-    /* =========================
-       COUNTDOWN
-    ========================= */
+  const days =
+    Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    const weddingDate = new Date("2027-05-25T00:00:00").getTime();
+  const hours =
+    Math.floor(
+      (distance % (1000 * 60 * 60 * 24))
+      / (1000 * 60 * 60)
+    );
 
-    function updateCountdown() {
+  const minutes =
+    Math.floor(
+      (distance % (1000 * 60 * 60))
+      / (1000 * 60)
+    );
 
-      const now = new Date().getTime();
-      const difference = weddingDate - now;
+  const seconds =
+    Math.floor(
+      (distance % (1000 * 60))
+      / 1000
+    );
 
-      if (difference <= 0) {
-        document.getElementById("days").innerText = "0";
-        document.getElementById("hours").innerText = "0";
-        document.getElementById("minutes").innerText = "0";
-        document.getElementById("seconds").innerText = "0";
-        return;
-      }
-
-      const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-      );
-
-      const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-      );
-
-      const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-      );
-
-      const seconds = Math.floor(
-        (difference / 1000) % 60
-      );
-
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
 
-    /* =========================
-       LANGUAGES
-    ========================= */
-
-    function changeLanguage(language) {
-
-      document
-        .querySelectorAll(".languages button")
-        .forEach(button => button.classList.remove("active"));
-
-      event.target.classList.add("active");
+updateCountdown();
 
-      const texts = {
-
-        fr: {
+setInterval(updateCountdown, 1000);
 
-          save: "SAVE THE DATE",
-          heroDate: "25 — 26 MAI 2027",
-          heroPlace: "MARRAKECH · MAROC",
-          heroNote: "L’invitation officielle suivra",
-
-          introSmall: "Une invitation",
-          introTitle: "Une date à retenir",
-          introText:
-            "Deux jours de célébration, dans une destination qui nous tient à cœur. Nous avons hâte de partager ces moments avec vous.",
-
-          dateSmall: "Le rendez-vous",
-          month: "MAI 2027",
 
-          countSmall: "Le compte à rebours",
-          countTitle: "Bientôt...",
-          days: "Jours",
-          hours: "Heures",
-          minutes: "Minutes",
-          seconds: "Secondes",
+/* =========================
+   DEFAULT LANGUAGE
+========================= */
 
-          messageSmall: "À très bientôt",
-          messageText:
-            "« Une nouvelle aventure nous attend à Marrakech. »"
-        },
+setLanguage("fr");
 
-        en: {
-
-          save: "SAVE THE DATE",
-          heroDate: "25 — 26 MAY 2027",
-          heroPlace: "MARRAKECH · MOROCCO",
-          heroNote: "The official invitation will follow",
-
-          introSmall: "An invitation",
-          introTitle: "A date to remember",
-          introText:
-            "Two days of celebration, in a destination close to our hearts. We cannot wait to share these moments with you.",
-
-          dateSmall: "The date",
-          month: "MAY 2027",
-
-          countSmall: "The countdown",
-          countTitle: "Coming soon...",
-          days: "Days",
-          hours: "Hours",
-          minutes: "Minutes",
-          seconds: "Seconds",
-
-          messageSmall: "See you soon",
-          messageText:
-            "“A new adventure awaits us in Marrakech.”"
-        },
-
-        ar: {
-
-          save: "احفظوا التاريخ",
-          heroDate: "25 — 26 مايو 2027",
-          heroPlace: "مراكش · المغرب",
-          heroNote: "ستصلكم الدعوة الرسمية لاحقًا",
-
-          introSmall: "دعوة",
-          introTitle: "موعد يستحق أن نتذكره",
-          introText:
-            "يومان من الاحتفال في وجهة عزيزة على قلوبنا. نتطلع إلى مشاركة هذه اللحظات معكم.",
-
-          dateSmall: "الموعد",
-          month: "مايو 2027",
-
-          countSmall: "العد التنازلي",
-          countTitle: "قريبًا...",
-          days: "يوم",
-          hours: "ساعة",
-          minutes: "دقيقة",
-          seconds: "ثانية",
-
-          messageSmall: "إلى اللقاء قريبًا",
-          messageText:
-            "« مغامرة جديدة تنتظرنا في مراكش. »"
-        }
-
-      };
-
-      const t = texts[language];
-
-      document.getElementById("save").innerText = t.save;
-      document.getElementById("heroDate").innerText = t.heroDate;
-      document.getElementById("heroPlace").innerText = t.heroPlace;
-      document.getElementById("heroNote").innerText = t.heroNote;
-
-      document.getElementById("introSmall").innerText = t.introSmall;
-      document.getElementById("introTitle").innerText = t.introTitle;
-      document.getElementById("introText").innerText = t.introText;
-
-      document.getElementById("dateSmall").innerText = t.dateSmall;
-      document.getElementById("month").innerText = t.month;
-
-      document.getElementById("countSmall").innerText = t.countSmall;
-      document.getElementById("countTitle").innerText = t.countTitle;
-
-      document.getElementById("daysLabel").innerText = t.days;
-      document.getElementById("hoursLabel").innerText = t.hours;
-      document.getElementById("minutesLabel").innerText = t.minutes;
-      document.getElementById("secondsLabel").innerText = t.seconds;
-
-      document.getElementById("messageSmall").innerText = t.messageSmall;
-      document.getElementById("messageText").innerText = t.messageText;
-
-      document.documentElement.lang = language;
-      document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
