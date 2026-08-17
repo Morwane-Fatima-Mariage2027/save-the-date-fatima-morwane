@@ -7,719 +7,715 @@
 <title>Morwane Joulia & Fatima Akotey — Save the Date</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #171411;
-  color: white;
-  overflow-x: hidden;
+body{
+    background:#f4eee5;
+    color:#302820;
+    font-family:'Montserrat', sans-serif;
 }
 
 /* =========================
    HERO
 ========================= */
 
-.hero {
-  min-height: 100svh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.hero{
+    position:relative;
+    min-height:100svh;
+    width:100%;
+    overflow:hidden;
 
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.12) 0%,
-      rgba(0,0,0,0.05) 35%,
-      rgba(0,0,0,0.38) 65%,
-      rgba(0,0,0,0.78) 100%
-    ),
-    url('IMG-20220709-WA0029_Original.jpeg');
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.12) 0%,
+            rgba(0,0,0,.08) 35%,
+            rgba(0,0,0,.48) 72%,
+            rgba(0,0,0,.78) 100%
+        ),
+        url("https://raw.githubusercontent.com/Morwane-Fatima-Mariage2027/save-the-date-fatima-morwane/main/IMG-20220709-WA0029_Original.jpeg");
 
-  background-size: cover;
-  background-position: center center;
+    background-size:cover;
+    background-position:center center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.10),
-      transparent 35%,
-      rgba(0,0,0,0.55) 100%
-    );
-  pointer-events: none;
-}
-
-/* =========================
-   LANGUAGES
-========================= */
-
-.languages {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  z-index: 10;
-
-  display: flex;
-  gap: 13px;
-
-  font-size: 12px;
-  letter-spacing: 1.5px;
-}
-
-.languages button {
-  border: none;
-  background: none;
-  color: rgba(255,255,255,0.65);
-  font-family: inherit;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  padding: 0;
-}
-
-.languages button.active,
-.languages button:hover {
-  color: white;
+/* légère protection pour que le texte reste lisible */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            transparent 20%,
+            rgba(0,0,0,.08) 60%,
+            rgba(0,0,0,.28) 100%
+        );
+    pointer-events:none;
 }
 
 /* =========================
-   HERO CONTENT
+   LANGUES
 ========================= */
 
-.hero-content {
-  position: relative;
-  z-index: 5;
+.languages{
+    position:absolute;
+    z-index:5;
+    top:28px;
+    right:28px;
 
-  width: 100%;
-  max-width: 700px;
+    display:flex;
+    gap:17px;
 
-  padding: 100px 25px 95px;
-
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    color:white;
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:300;
 }
 
-/* SAVE THE DATE */
-
-.save-label {
-  font-size: 12px;
-  letter-spacing: 7px;
-  font-weight: 400;
-  margin-bottom: 25px;
-
-  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+.languages a{
+    color:white;
+    text-decoration:none;
+    opacity:.72;
+    transition:.3s;
 }
 
-/* NAMES */
-
-.names {
-  font-family: 'Cormorant Garamond', serif;
-
-  font-size: clamp(3.1rem, 13vw, 6.2rem);
-
-  line-height: 0.82;
-  font-weight: 500;
-
-  letter-spacing: -2px;
-
-  max-width: 600px;
-
-  text-shadow:
-    0 3px 20px rgba(0,0,0,0.75),
-    0 1px 4px rgba(0,0,0,0.8);
-
-  margin-bottom: 28px;
-}
-
-.names .amp {
-  font-style: italic;
-  font-weight: 400;
-}
-
-/* LINE */
-
-.hero-line {
-  width: 95px;
-  height: 1px;
-  background: rgba(255,255,255,0.85);
-  margin-bottom: 25px;
-}
-
-/* DATE */
-
-.hero-date {
-  font-size: 16px;
-  letter-spacing: 5px;
-  font-weight: 400;
-
-  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
-
-  margin-bottom: 14px;
-}
-
-/* PLACE */
-
-.hero-place {
-  font-size: 12px;
-  letter-spacing: 4px;
-  font-weight: 400;
-
-  text-shadow: 0 2px 12px rgba(0,0,0,0.75);
+.languages a.active,
+.languages a:hover{
+    opacity:1;
 }
 
 /* =========================
-   PERSONAL MESSAGE
+   CONTENU HERO
 ========================= */
 
-.personal-note {
-  margin-top: 42px;
+.hero-content{
+    position:relative;
+    z-index:2;
 
-  max-width: 480px;
+    width:100%;
+    max-width:850px;
 
-  padding: 15px 20px;
+    min-height:100svh;
 
-  border-top: 1px solid rgba(255,255,255,0.35);
-  border-bottom: 1px solid rgba(255,255,255,0.35);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  line-height: 1.45;
-  font-style: italic;
+    text-align:center;
 
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    padding:
+        100px
+        25px
+        90px;
+}
 
-  background: rgba(0,0,0,0.12);
-  backdrop-filter: blur(2px);
+/* petit titre */
+
+.eyebrow{
+    font-size:13px;
+    letter-spacing:7px;
+    font-weight:300;
+    color:white;
+
+    margin-bottom:38px;
+}
+
+/* petite décoration */
+
+.decor{
+    width:100px;
+    height:1px;
+    background:rgba(255,255,255,.8);
+
+    position:relative;
+    margin-bottom:28px;
+}
+
+.decor::after{
+    content:"✦";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-55%);
+
+    color:#e6c995;
+    background:transparent;
+
+    font-size:13px;
 }
 
 /* =========================
-   OFFICIAL INVITATION
+   NOMS
 ========================= */
 
-.follow {
-  margin-top: 25px;
+.names{
+    font-family:'Cormorant Garamond', serif;
 
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-style: italic;
+    font-size:clamp(48px, 7vw, 76px);
 
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    line-height:.92;
+
+    font-weight:400;
+
+    color:#fff;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.35);
+
+    letter-spacing:-1px;
+
+    max-width:850px;
+}
+
+.names .line{
+    display:block;
+}
+
+.names .ampersand{
+    font-size:.72em;
+    font-style:italic;
+    color:#e6c995;
+
+    padding:0 6px;
+}
+
+/* ligne sous les noms */
+
+.hero-line{
+    width:105px;
+    height:1px;
+    background:rgba(255,255,255,.85);
+
+    margin:34px 0 30px;
 }
 
 /* =========================
-   COUNTDOWN
+   DATE / LIEU
 ========================= */
 
-.countdown-section {
-  background: #f4efe7;
-  color: #29221d;
+.hero-date{
+    color:white;
 
-  padding: 75px 20px;
+    font-size:18px;
+    letter-spacing:5px;
+    font-weight:400;
 
-  text-align: center;
+    margin-bottom:18px;
 }
 
-.section-label {
-  font-size: 11px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
+.hero-place{
+    color:white;
 
-  margin-bottom: 20px;
-
-  opacity: 0.7;
-}
-
-.countdown-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 8vw, 3.5rem);
-  font-weight: 500;
-
-  margin-bottom: 38px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: clamp(14px, 5vw, 45px);
-  flex-wrap: wrap;
-}
-
-.time-box {
-  min-width: 65px;
-}
-
-.time-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.3rem, 9vw, 4rem);
-  font-weight: 500;
-  line-height: 1;
-}
-
-.time-label {
-  margin-top: 8px;
-
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  opacity: 0.65;
+    font-size:13px;
+    letter-spacing:5px;
+    font-weight:300;
 }
 
 /* =========================
-   FOOTER
+   MESSAGE NOMINATIF
 ========================= */
 
-.footer {
-  background: #171411;
-  color: rgba(255,255,255,0.75);
+.personal-note{
+    margin-top:55px;
 
-  text-align: center;
+    width:min(700px, 92%);
 
-  padding: 45px 20px 50px;
+    padding:28px 30px;
 
-  font-family: 'Cormorant Garamond', serif;
+    border:1px solid rgba(255,255,255,.65);
+
+    background:rgba(30,20,12,.30);
+
+    backdrop-filter:blur(3px);
+
+    color:white;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:19px;
+
+    line-height:1.55;
+
+    font-style:normal;
 }
 
-.footer-names {
-  font-size: 27px;
-  margin-bottom: 10px;
+.personal-note strong{
+    font-weight:500;
 }
 
-.footer-date {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  opacity: 0.6;
+.official{
+    margin-top:34px;
+
+    color:white;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:23px;
+
+    font-style:italic;
 }
 
 /* =========================
-   SCROLL ARROW
+   FLECHE
 ========================= */
 
-.scroll-arrow {
-  position: absolute;
-  bottom: 23px;
-  left: 50%;
-  transform: translateX(-50%);
+.scroll-down{
+    position:absolute;
 
-  z-index: 8;
+    bottom:25px;
 
-  width: 28px;
-  height: 42px;
+    z-index:5;
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+    width:48px;
+    height:48px;
 
-  color: white;
+    border:1px solid rgba(255,255,255,.75);
+    border-radius:50%;
 
-  font-size: 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  animation: bounce 2s infinite;
+    color:white;
 
-  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    text-decoration:none;
+
+    font-size:24px;
+
+    animation:float 2s infinite ease-in-out;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translate(-50%, 0);
-  }
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(7px);
+    }
+}
 
-  50% {
-    transform: translate(-50%, 8px);
-  }
+/* =========================
+   COMPTE A REBOURS
+========================= */
+
+.countdown-section{
+    background:#f5eee4;
+
+    min-height:360px;
+
+    padding:70px 20px 80px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.countdown-title{
+    color:#a68455;
+
+    font-size:13px;
+
+    letter-spacing:6px;
+
+    font-weight:400;
+
+    margin-bottom:35px;
+}
+
+.countdown-decoration{
+    width:80px;
+    height:1px;
+
+    background:#c9ad83;
+
+    margin:-15px auto 35px;
+
+    position:relative;
+}
+
+.countdown-decoration::after{
+    content:"✦";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-55%);
+
+    background:#f5eee4;
+
+    padding:0 8px;
+
+    color:#a68455;
+}
+
+.countdown{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4, minmax(65px, 130px));
+
+    gap:0;
+
+    max-width:650px;
+    width:100%;
+}
+
+.time-box{
+    border-right:1px solid #d8c6ad;
+
+    padding:0 15px;
+}
+
+.time-box:last-child{
+    border-right:none;
+}
+
+.time-number{
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:56px;
+
+    color:#2f2924;
+
+    line-height:1;
+}
+
+.time-label{
+    margin-top:12px;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#756653;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-  .hero {
-    min-height: 100svh;
-    background-position: center center;
-  }
+    .languages{
+        top:24px;
+        right:20px;
 
-  .languages {
-    top: 20px;
-    right: 18px;
-  }
+        font-size:11px;
 
-  .hero-content {
-    padding:
-      105px
-      20px
-      85px;
-  }
+        gap:11px;
 
-  .save-label {
-    font-size: 10px;
-    letter-spacing: 5px;
-    margin-bottom: 22px;
-  }
+        letter-spacing:1.5px;
+    }
 
-  .names {
-    font-size: clamp(2.9rem, 14vw, 4.7rem);
-    line-height: 0.85;
-    letter-spacing: -1px;
-    max-width: 95%;
-    margin-bottom: 24px;
-  }
+    .hero{
+        background-position:center center;
+    }
 
-  .hero-date {
-    font-size: 14px;
-    letter-spacing: 3px;
-  }
+    .hero-content{
+        padding:
+            105px
+            18px
+            90px;
+    }
 
-  .hero-place {
-    font-size: 10px;
-    letter-spacing: 3px;
-  }
+    .eyebrow{
+        font-size:10px;
+        letter-spacing:5px;
+        margin-bottom:28px;
+    }
 
-  .personal-note {
-    max-width: 330px;
-    font-size: 16px;
-    margin-top: 34px;
-    padding: 13px 14px;
-  }
+    .decor{
+        margin-bottom:22px;
+    }
 
-  .follow {
-    font-size: 17px;
-    margin-top: 20px;
-  }
+    .names{
+        font-size:clamp(38px, 11vw, 55px);
 
-  .countdown-section {
-    padding: 60px 18px;
-  }
+        line-height:.95;
 
-  .countdown {
-    gap: 22px;
-  }
+        letter-spacing:-.5px;
+
+        max-width:95%;
+    }
+
+    .names .ampersand{
+        padding:0 3px;
+    }
+
+    .hero-line{
+        margin:28px 0 24px;
+        width:80px;
+    }
+
+    .hero-date{
+        font-size:15px;
+        letter-spacing:3px;
+    }
+
+    .hero-place{
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .personal-note{
+        margin-top:42px;
+
+        padding:20px 18px;
+
+        font-size:17px;
+
+        line-height:1.45;
+    }
+
+    .official{
+        font-size:20px;
+
+        margin-top:28px;
+    }
+
+    .countdown-section{
+        min-height:320px;
+
+        padding:60px 15px;
+    }
+
+    .countdown-title{
+        font-size:10px;
+
+        letter-spacing:4px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+
+        row-gap:35px;
+    }
+
+    .time-box:nth-child(2){
+        border-right:none;
+    }
+
+    .time-box:nth-child(1),
+    .time-box:nth-child(2){
+        padding-bottom:10px;
+    }
+
+    .time-number{
+        font-size:48px;
+    }
+
+    .time-label{
+        font-size:8px;
+        letter-spacing:2px;
+    }
 }
 
-/* =========================
-   ARABIC
-========================= */
-
-html[dir="rtl"] .personal-note {
-  font-family: 'Cormorant Garamond', serif;
-}
-
-html[dir="rtl"] .languages {
-  right: auto;
-  left: 24px;
-}
-
-html[dir="rtl"] .hero {
-  direction: rtl;
-}
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HERO
-========================= -->
+<section class="hero" id="save">
 
-<section class="hero">
+    <!-- LANGUES -->
+    <nav class="languages">
+        <a href="#" class="active">FR</a>
+        <span>·</span>
+        <a href="#">EN</a>
+        <span>·</span>
+        <a href="#">العربية</a>
+    </nav>
 
-  <div class="languages">
-    <button id="frBtn" class="active" onclick="setLanguage('fr')">FR</button>
-    <span>·</span>
-    <button id="enBtn" onclick="setLanguage('en')">EN</button>
-    <span>·</span>
-    <button id="arBtn" onclick="setLanguage('ar')">العربية</button>
-  </div>
 
-  <div class="hero-content">
+    <div class="hero-content">
 
-    <p class="save-label" id="saveLabel">
-      SAVE THE DATE
-    </p>
+        <p class="eyebrow">
+            SAVE THE DATE
+        </p>
 
-    <h1 class="names">
-      <span id="name1">Morwane Joulia</span>
-      <span class="amp">&amp;</span>
-      <span id="name2">Fatima Akotey</span>
-    </h1>
+        <div class="decor"></div>
 
-    <div class="hero-line"></div>
 
-    <p class="hero-date">
-      25 — 26 MAI 2027
-    </p>
+        <!-- NOMS -->
+        <h1 class="names">
 
-    <p class="hero-place" id="place">
-      MARRAKECH · MAROC
-    </p>
+            <span class="line">
+                Morwane Joulia
+            </span>
 
-    <div class="personal-note" id="personalNote">
-      Ce Save the Date est personnel et nominatif.
-      Il est exclusivement destiné à la personne qui le reçoit
-      et ne peut être transféré.
+            <span class="line">
+                <span class="ampersand">&amp;</span>
+                Fatima Akotey
+            </span>
+
+        </h1>
+
+
+        <div class="hero-line"></div>
+
+
+        <!-- DATE -->
+        <p class="hero-date">
+            25 — 26 MAI 2027
+        </p>
+
+        <p class="hero-place">
+            MARRAKECH · MAROC
+        </p>
+
+
+        <!-- MESSAGE PERSONNEL -->
+        <div class="personal-note">
+
+            <strong>
+                Ce Save the Date est personnel et nominatif.
+            </strong>
+
+            <br>
+
+            Il est exclusivement destiné à la personne qui le reçoit
+            et ne peut être transféré ou partagé.
+
+        </div>
+
+
+        <p class="official">
+            L’invitation officielle suivra
+        </p>
+
     </div>
 
-    <p class="follow" id="followText">
-      L’invitation officielle suivra
-    </p>
 
-  </div>
-
-  <div class="scroll-arrow">
-    ↓
-  </div>
+    <!-- BOUTON POUR DESCENDRE -->
+    <a href="#countdown" class="scroll-down">
+        ↓
+    </a>
 
 </section>
 
+
 <!-- =========================
-     COUNTDOWN
+     COMPTE À REBOURS
 ========================= -->
 
-<section class="countdown-section">
+<section class="countdown-section" id="countdown">
 
-  <p class="section-label" id="countdownLabel">
-    Le compte à rebours commence
-  </p>
+    <h2 class="countdown-title">
+        LE COMPTE À REBOURS COMMENCE
+    </h2>
 
-  <h2 class="countdown-title" id="countdownTitle">
-    Plus que...
-  </h2>
+    <div class="countdown-decoration"></div>
 
-  <div class="countdown">
+    <div class="countdown">
 
-    <div class="time-box">
-      <div class="time-number" id="days">0</div>
-      <div class="time-label" id="daysLabel">jours</div>
+        <div class="time-box">
+            <div class="time-number" id="days">0</div>
+            <div class="time-label">JOURS</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="hours">0</div>
+            <div class="time-label">HEURES</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="minutes">0</div>
+            <div class="time-label">MINUTES</div>
+        </div>
+
+        <div class="time-box">
+            <div class="time-number" id="seconds">0</div>
+            <div class="time-label">SECONDES</div>
+        </div>
+
     </div>
-
-    <div class="time-box">
-      <div class="time-number" id="hours">0</div>
-      <div class="time-label" id="hoursLabel">heures</div>
-    </div>
-
-    <div class="time-box">
-      <div class="time-number" id="minutes">0</div>
-      <div class="time-label" id="minutesLabel">minutes</div>
-    </div>
-
-    <div class="time-box">
-      <div class="time-number" id="seconds">0</div>
-      <div class="time-label" id="secondsLabel">secondes</div>
-    </div>
-
-  </div>
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-  <div class="footer-names">
-    Morwane Joulia &amp; Fatima Akotey
-  </div>
-
-  <div class="footer-date">
-    25 — 26 MAI 2027 · MARRAKECH, MAROC
-  </div>
-
-</footer>
 
 <script>
 
 /* =========================
-   TRANSLATIONS
-========================= */
-
-const translations = {
-
-  fr: {
-    save: "SAVE THE DATE",
-    place: "MARRAKECH · MAROC",
-    note:
-      "Ce Save the Date est personnel et nominatif. Il est exclusivement destiné à la personne qui le reçoit et ne peut être transféré.",
-    follow: "L’invitation officielle suivra",
-    countdownLabel: "Le compte à rebours commence",
-    countdownTitle: "Plus que...",
-    days: "jours",
-    hours: "heures",
-    minutes: "minutes",
-    seconds: "secondes"
-  },
-
-  en: {
-    save: "SAVE THE DATE",
-    place: "MARRAKECH · MOROCCO",
-    note:
-      "This Save the Date is personal and nominative. It is intended exclusively for the person who receives it and may not be transferred.",
-    follow: "The official invitation will follow",
-    countdownLabel: "The countdown begins",
-    countdownTitle: "Only...",
-    days: "days",
-    hours: "hours",
-    minutes: "minutes",
-    seconds: "seconds"
-  },
-
-  ar: {
-    save: "احفظوا التاريخ",
-    place: "مراكش · المغرب",
-    note:
-      "هذا الإعلان شخصي ومخصص للشخص الذي استلمه فقط، ولا يجوز تحويله أو مشاركته مع شخص آخر.",
-    follow: "ستصل الدعوة الرسمية لاحقًا",
-    countdownLabel: "العد التنازلي يبدأ",
-    countdownTitle: "متبقي...",
-    days: "يوم",
-    hours: "ساعة",
-    minutes: "دقيقة",
-    seconds: "ثانية"
-  }
-
-};
-
-
-/* =========================
-   LANGUAGE
-========================= */
-
-function setLanguage(language) {
-
-  const t = translations[language];
-
-  document.documentElement.lang = language;
-
-  if (language === "ar") {
-    document.documentElement.dir = "rtl";
-  } else {
-    document.documentElement.dir = "ltr";
-  }
-
-  document.getElementById("saveLabel").textContent = t.save;
-  document.getElementById("place").textContent = t.place;
-  document.getElementById("personalNote").textContent = t.note;
-  document.getElementById("followText").textContent = t.follow;
-
-  document.getElementById("countdownLabel").textContent =
-    t.countdownLabel;
-
-  document.getElementById("countdownTitle").textContent =
-    t.countdownTitle;
-
-  document.getElementById("daysLabel").textContent =
-    t.days;
-
-  document.getElementById("hoursLabel").textContent =
-    t.hours;
-
-  document.getElementById("minutesLabel").textContent =
-    t.minutes;
-
-  document.getElementById("secondsLabel").textContent =
-    t.seconds;
-
-  document
-    .querySelectorAll(".languages button")
-    .forEach(button => button.classList.remove("active"));
-
-  if (language === "fr") {
-    document.getElementById("frBtn").classList.add("active");
-  }
-
-  if (language === "en") {
-    document.getElementById("enBtn").classList.add("active");
-  }
-
-  if (language === "ar") {
-    document.getElementById("arBtn").classList.add("active");
-  }
-
-}
-
-
-/* =========================
-   COUNTDOWN
+   COMPTE À REBOURS
+   25 MAI 2027
 ========================= */
 
 const weddingDate =
-  new Date("2027-05-25T18:00:00+01:00").getTime();
+    new Date("May 25, 2027 00:00:00").getTime();
 
-function updateCountdown() {
 
-  const now = new Date().getTime();
+function updateCountdown(){
 
-  const distance = weddingDate - now;
+    const now = new Date().getTime();
 
-  if (distance <= 0) {
+    const distance = weddingDate - now;
 
-    document.getElementById("days").textContent = "0";
-    document.getElementById("hours").textContent = "0";
-    document.getElementById("minutes").textContent = "0";
-    document.getElementById("seconds").textContent = "0";
 
-    return;
-  }
+    if(distance <= 0){
 
-  const days =
-    Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
 
-  const hours =
-    Math.floor(
-      (distance % (1000 * 60 * 60 * 24))
-      / (1000 * 60 * 60)
-    );
+        return;
+    }
 
-  const minutes =
-    Math.floor(
-      (distance % (1000 * 60 * 60))
-      / (1000 * 60)
-    );
 
-  const seconds =
-    Math.floor(
-      (distance % (1000 * 60))
-      / 1000
-    );
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = hours;
-  document.getElementById("minutes").textContent = minutes;
-  document.getElementById("seconds").textContent = seconds;
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
 }
+
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
-
-
-/* =========================
-   DEFAULT LANGUAGE
-========================= */
-
-setLanguage("fr");
+setInterval(updateCountdown,1000);
 
 </script>
 
