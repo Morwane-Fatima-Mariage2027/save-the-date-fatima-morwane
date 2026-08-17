@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1d1815">
 
-<title>Morwane Joulia & Fatima Akotey — Save the Date</title>
+<title>Morwane Joulia & Fatima Akotey</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -21,9 +21,10 @@ html{
 }
 
 body{
-    background:#f4eee5;
-    color:#302820;
-    font-family:'Montserrat', sans-serif;
+    background:#f5efe7;
+    color:#2b2622;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
 }
 
 /* =========================
@@ -31,42 +32,38 @@ body{
 ========================= */
 
 .hero{
-    position:relative;
     min-height:100svh;
-    width:100%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     overflow:hidden;
 
-    background-image:
+    background:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,.12) 0%,
-            rgba(0,0,0,.08) 35%,
-            rgba(0,0,0,.48) 72%,
-            rgba(0,0,0,.78) 100%
+            rgba(0,0,0,.08),
+            rgba(0,0,0,.03) 35%,
+            rgba(0,0,0,.30) 65%,
+            rgba(0,0,0,.72)
         ),
         url("https://raw.githubusercontent.com/Morwane-Fatima-Mariage2027/save-the-date-fatima-morwane/main/IMG-20220709-WA0029_Original.jpeg");
 
     background-size:cover;
-    background-position:center center;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    background-position:center;
 }
 
-/* légère protection pour que le texte reste lisible */
-.hero::after{
+.hero::before{
     content:"";
     position:absolute;
     inset:0;
+
     background:
         radial-gradient(
-            circle at 50% 40%,
-            transparent 20%,
-            rgba(0,0,0,.08) 60%,
-            rgba(0,0,0,.28) 100%
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.20) 100%
         );
-    pointer-events:none;
 }
 
 /* =========================
@@ -75,33 +72,32 @@ body{
 
 .languages{
     position:absolute;
-    z-index:5;
     top:28px;
     right:28px;
+    z-index:5;
 
     display:flex;
-    gap:17px;
+    gap:14px;
 
     color:white;
-    font-size:13px;
+    font-size:12px;
     letter-spacing:2px;
-    font-weight:300;
 }
 
 .languages a{
     color:white;
     text-decoration:none;
-    opacity:.72;
-    transition:.3s;
+    opacity:.65;
 }
 
-.languages a.active,
-.languages a:hover{
+.languages a.active{
     opacity:1;
+    border-bottom:1px solid white;
+    padding-bottom:4px;
 }
 
 /* =========================
-   CONTENU HERO
+   HERO CONTENT
 ========================= */
 
 .hero-content{
@@ -109,56 +105,48 @@ body{
     z-index:2;
 
     width:100%;
-    max-width:850px;
-
-    min-height:100svh;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    max-width:900px;
 
     text-align:center;
 
-    padding:
-        100px
-        25px
-        90px;
+    padding:90px 25px 80px;
 }
-
-/* petit titre */
 
 .eyebrow{
-    font-size:13px;
-    letter-spacing:7px;
-    font-weight:300;
     color:white;
 
-    margin-bottom:38px;
+    font-size:13px;
+    letter-spacing:8px;
+    font-weight:300;
+
+    margin-bottom:34px;
 }
 
-/* petite décoration */
-
-.decor{
-    width:100px;
+.ornament{
+    width:90px;
     height:1px;
-    background:rgba(255,255,255,.8);
+
+    background:rgba(255,255,255,.75);
+
+    margin:0 auto 30px;
 
     position:relative;
-    margin-bottom:28px;
 }
 
-.decor::after{
+.ornament::after{
     content:"✦";
+
     position:absolute;
     left:50%;
     top:50%;
+
     transform:translate(-50%,-55%);
 
-    color:#e6c995;
-    background:transparent;
+    color:#e5c68f;
 
     font-size:13px;
+
+    padding:0 8px;
 }
 
 /* =========================
@@ -166,127 +154,122 @@ body{
 ========================= */
 
 .names{
-    font-family:'Cormorant Garamond', serif;
+    color:white;
 
-    font-size:clamp(48px, 7vw, 76px);
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(47px,7vw,75px);
+
+    font-weight:400;
 
     line-height:.92;
 
-    font-weight:400;
-
-    color:#fff;
-
-    text-shadow:
-        0 2px 12px rgba(0,0,0,.35);
-
     letter-spacing:-1px;
 
-    max-width:850px;
+    text-shadow:0 3px 18px rgba(0,0,0,.35);
 }
 
-.names .line{
+.names span{
     display:block;
 }
 
-.names .ampersand{
-    font-size:.72em;
+.names .amp{
+    color:#e3c28a;
     font-style:italic;
-    color:#e6c995;
-
-    padding:0 6px;
+    font-size:.72em;
+    margin:5px 0;
 }
 
-/* ligne sous les noms */
+/* =========================
+   DATE
+========================= */
 
-.hero-line{
-    width:105px;
+.small-line{
+    width:110px;
     height:1px;
-    background:rgba(255,255,255,.85);
 
-    margin:34px 0 30px;
+    background:rgba(255,255,255,.8);
+
+    margin:34px auto 28px;
+}
+
+.date{
+    color:white;
+
+    font-size:17px;
+    letter-spacing:5px;
+
+    margin-bottom:17px;
+}
+
+.place{
+    color:white;
+
+    font-size:12px;
+    letter-spacing:5px;
 }
 
 /* =========================
-   DATE / LIEU
+   MESSAGE
 ========================= */
 
-.hero-date{
-    color:white;
+.personal-message{
+    width:min(690px,92%);
 
-    font-size:18px;
-    letter-spacing:5px;
-    font-weight:400;
+    margin:48px auto 0;
 
-    margin-bottom:18px;
-}
+    padding:25px 28px;
 
-.hero-place{
-    color:white;
+    border:1px solid rgba(255,255,255,.55);
 
-    font-size:13px;
-    letter-spacing:5px;
-    font-weight:300;
-}
+    background:rgba(25,18,13,.27);
 
-/* =========================
-   MESSAGE NOMINATIF
-========================= */
-
-.personal-note{
-    margin-top:55px;
-
-    width:min(700px, 92%);
-
-    padding:28px 30px;
-
-    border:1px solid rgba(255,255,255,.65);
-
-    background:rgba(30,20,12,.30);
-
-    backdrop-filter:blur(3px);
+    backdrop-filter:blur(4px);
 
     color:white;
 
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Cormorant Garamond',serif;
 
     font-size:19px;
 
-    line-height:1.55;
-
-    font-style:normal;
+    line-height:1.5;
 }
 
-.personal-note strong{
+.personal-message strong{
     font-weight:500;
 }
 
-.official{
-    margin-top:34px;
-
+.follow{
     color:white;
 
-    font-family:'Cormorant Garamond', serif;
+    font-family:'Cormorant Garamond',serif;
 
     font-size:23px;
-
     font-style:italic;
+
+    margin-top:30px;
 }
 
 /* =========================
-   FLECHE
+   SCROLL
 ========================= */
 
-.scroll-down{
+.scroll{
     position:absolute;
 
     bottom:25px;
 
+    left:50%;
+
+    transform:translateX(-50%);
+
     z-index:5;
 
-    width:48px;
-    height:48px;
+    width:45px;
+    height:45px;
 
-    border:1px solid rgba(255,255,255,.75);
+    border:1px solid rgba(255,255,255,.65);
+
     border-radius:50%;
 
     display:flex;
@@ -297,63 +280,50 @@ body{
 
     text-decoration:none;
 
-    font-size:24px;
+    font-size:22px;
 
-    animation:float 2s infinite ease-in-out;
+    animation:down 2s infinite;
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(7px);
-    }
+@keyframes down{
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(7px)}
 }
 
 /* =========================
-   COMPTE A REBOURS
+   COUNTDOWN
 ========================= */
 
 .countdown-section{
-    background:#f5eee4;
+    background:#f5efe7;
 
-    min-height:360px;
-
-    padding:70px 20px 80px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    padding:85px 20px;
 
     text-align:center;
 }
 
-.countdown-title{
-    color:#a68455;
+.section-label{
+    color:#a1845b;
 
-    font-size:13px;
+    font-size:12px;
 
     letter-spacing:6px;
 
     font-weight:400;
-
-    margin-bottom:35px;
 }
 
-.countdown-decoration{
+.gold-line{
     width:80px;
     height:1px;
 
-    background:#c9ad83;
+    background:#c6aa7e;
 
-    margin:-15px auto 35px;
+    margin:28px auto 45px;
 
     position:relative;
 }
 
-.countdown-decoration::after{
+.gold-line::after{
     content:"✦";
 
     position:absolute;
@@ -361,150 +331,304 @@ body{
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-55%);
+    transform:translate(-50%,-50%);
 
-    background:#f5eee4;
+    background:#f5efe7;
+
+    color:#b09264;
 
     padding:0 8px;
-
-    color:#a68455;
 }
 
 .countdown{
+    max-width:700px;
+
+    margin:auto;
+
     display:grid;
 
-    grid-template-columns:
-        repeat(4, minmax(65px, 130px));
-
-    gap:0;
-
-    max-width:650px;
-    width:100%;
+    grid-template-columns:repeat(4,1fr);
 }
 
-.time-box{
-    border-right:1px solid #d8c6ad;
+.time{
+    border-right:1px solid #d7c6b0;
 
     padding:0 15px;
 }
 
-.time-box:last-child{
-    border-right:none;
+.time:last-child{
+    border:none;
 }
 
-.time-number{
-    font-family:'Cormorant Garamond', serif;
+.number{
+    font-family:'Cormorant Garamond',serif;
 
-    font-size:56px;
+    font-size:60px;
 
-    color:#2f2924;
+    font-weight:400;
 
-    line-height:1;
+    color:#29231f;
 }
 
-.time-label{
-    margin-top:12px;
+.label{
+    margin-top:8px;
+
+    color:#7d6c59;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    background:#fffaf4;
+
+    padding:100px 25px;
+
+    text-align:center;
+}
+
+.intro h2,
+.program h2,
+.info h2{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:48px;
+
+    font-weight:400;
+
+    color:#302a25;
+
+    margin-bottom:20px;
+}
+
+.intro p{
+    max-width:650px;
+
+    margin:auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:22px;
+
+    line-height:1.6;
+
+    color:#675b4f;
+}
+
+/* =========================
+   PROGRAMME
+========================= */
+
+.program{
+    background:#eee3d5;
+
+    padding:100px 25px;
+}
+
+.program-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.events{
+    max-width:900px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+.event{
+    background:rgba(255,255,255,.6);
+
+    padding:40px 28px;
+
+    text-align:center;
+
+    border:1px solid rgba(160,130,90,.22);
+}
+
+.event-number{
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    color:#a1845b;
+
+    margin-bottom:20px;
+}
+
+.event h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:31px;
+
+    font-weight:400;
+
+    margin-bottom:15px;
+}
+
+.event p{
+    color:#6c6258;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+/* =========================
+   INFORMATIONS
+========================= */
+
+.info{
+    background:#f8f2ea;
+
+    padding:100px 25px;
+
+    text-align:center;
+}
+
+.info-grid{
+    max-width:850px;
+
+    margin:55px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+}
+
+.info-card{
+    padding:35px 25px;
+
+    background:white;
+
+    border:1px solid #e3d8ca;
+}
+
+.info-card h3{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
+
+    font-weight:400;
+
+    margin-bottom:12px;
+}
+
+.info-card p{
+    color:#71665b;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#28221e;
+
+    color:white;
+
+    padding:70px 20px;
+
+    text-align:center;
+}
+
+.footer-names{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+}
+
+.footer-date{
+    color:#d7bb8d;
+
+    letter-spacing:4px;
+
+    font-size:11px;
+}
+
+.footer p{
+    margin-top:35px;
+
+    color:#aaa098;
 
     font-size:10px;
 
-    letter-spacing:3px;
-
-    color:#756653;
+    letter-spacing:2px;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:650px){
 
     .languages{
-        top:24px;
-        right:20px;
-
-        font-size:11px;
-
-        gap:11px;
-
-        letter-spacing:1.5px;
+        top:22px;
+        right:18px;
+        font-size:10px;
+        gap:10px;
     }
 
     .hero{
-        background-position:center center;
+        background-position:center;
     }
 
     .hero-content{
-        padding:
-            105px
-            18px
-            90px;
+        padding:105px 18px 85px;
     }
 
     .eyebrow{
-        font-size:10px;
+        font-size:9px;
         letter-spacing:5px;
-        margin-bottom:28px;
-    }
-
-    .decor{
-        margin-bottom:22px;
+        margin-bottom:27px;
     }
 
     .names{
-        font-size:clamp(38px, 11vw, 55px);
-
-        line-height:.95;
-
-        letter-spacing:-.5px;
-
-        max-width:95%;
+        font-size:clamp(39px,11vw,55px);
+        line-height:.94;
     }
 
-    .names .ampersand{
-        padding:0 3px;
+    .names .amp{
+        margin:3px 0;
     }
 
-    .hero-line{
-        margin:28px 0 24px;
-        width:80px;
-    }
-
-    .hero-date{
-        font-size:15px;
+    .date{
+        font-size:14px;
         letter-spacing:3px;
     }
 
-    .hero-place{
-        font-size:10px;
+    .place{
+        font-size:9px;
         letter-spacing:3px;
     }
 
-    .personal-note{
-        margin-top:42px;
-
-        padding:20px 18px;
-
+    .personal-message{
+        margin-top:40px;
+        padding:20px 17px;
         font-size:17px;
-
-        line-height:1.45;
     }
 
-    .official{
+    .follow{
         font-size:20px;
-
-        margin-top:28px;
-    }
-
-    .countdown-section{
-        min-height:320px;
-
-        padding:60px 15px;
-    }
-
-    .countdown-title{
-        font-size:10px;
-
-        letter-spacing:4px;
     }
 
     .countdown{
@@ -513,33 +637,49 @@ body{
         row-gap:35px;
     }
 
-    .time-box:nth-child(2){
-        border-right:none;
+    .time:nth-child(2){
+        border:none;
     }
 
-    .time-box:nth-child(1),
-    .time-box:nth-child(2){
-        padding-bottom:10px;
-    }
-
-    .time-number{
+    .number{
         font-size:48px;
     }
 
-    .time-label{
-        font-size:8px;
-        letter-spacing:2px;
+    .intro h2,
+    .program h2,
+    .info h2{
+        font-size:40px;
+    }
+
+    .intro p{
+        font-size:19px;
+    }
+
+    .events{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-names{
+        font-size:34px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<section class="hero" id="save">
+<!-- =========================
+     HERO
+========================= -->
 
-    <!-- LANGUES -->
+<section class="hero" id="accueil">
+
     <nav class="languages">
         <a href="#" class="active">FR</a>
         <span>·</span>
@@ -555,61 +695,64 @@ body{
             SAVE THE DATE
         </p>
 
-        <div class="decor"></div>
+        <div class="ornament"></div>
 
 
-        <!-- NOMS -->
         <h1 class="names">
 
-            <span class="line">
+            <span>
                 Morwane Joulia
             </span>
 
-            <span class="line">
-                <span class="ampersand">&amp;</span>
+            <span class="amp">
+                &amp;
+            </span>
+
+            <span>
                 Fatima Akotey
             </span>
 
         </h1>
 
 
-        <div class="hero-line"></div>
+        <div class="small-line"></div>
 
 
-        <!-- DATE -->
-        <p class="hero-date">
+        <p class="date">
             25 — 26 MAI 2027
         </p>
 
-        <p class="hero-place">
+        <p class="place">
             MARRAKECH · MAROC
         </p>
 
 
-        <!-- MESSAGE PERSONNEL -->
-        <div class="personal-note">
+        <div class="personal-message">
 
             <strong>
                 Ce Save the Date est personnel et nominatif.
             </strong>
 
+            <br><br>
+
+            Il est exclusivement destiné à la personne qui le reçoit.
             <br>
 
-            Il est exclusivement destiné à la personne qui le reçoit
-            et ne peut être transféré ou partagé.
+            Merci de ne pas le transférer ni le partager,
+            afin de limiter les imprévus et de préserver
+            l’organisation de cet événement.
 
         </div>
 
 
-        <p class="official">
+        <p class="follow">
             L’invitation officielle suivra
         </p>
 
     </div>
 
 
-    <!-- BOUTON POUR DESCENDRE -->
-    <a href="#countdown" class="scroll-down">
+    <a href="#countdown" class="scroll">
         ↓
     </a>
 
@@ -622,32 +765,33 @@ body{
 
 <section class="countdown-section" id="countdown">
 
-    <h2 class="countdown-title">
+    <div class="section-label">
         LE COMPTE À REBOURS COMMENCE
-    </h2>
+    </div>
 
-    <div class="countdown-decoration"></div>
+    <div class="gold-line"></div>
+
 
     <div class="countdown">
 
-        <div class="time-box">
-            <div class="time-number" id="days">0</div>
-            <div class="time-label">JOURS</div>
+        <div class="time">
+            <div class="number" id="days">0</div>
+            <div class="label">JOURS</div>
         </div>
 
-        <div class="time-box">
-            <div class="time-number" id="hours">0</div>
-            <div class="time-label">HEURES</div>
+        <div class="time">
+            <div class="number" id="hours">0</div>
+            <div class="label">HEURES</div>
         </div>
 
-        <div class="time-box">
-            <div class="time-number" id="minutes">0</div>
-            <div class="time-label">MINUTES</div>
+        <div class="time">
+            <div class="number" id="minutes">0</div>
+            <div class="label">MINUTES</div>
         </div>
 
-        <div class="time-box">
-            <div class="time-number" id="seconds">0</div>
-            <div class="time-label">SECONDES</div>
+        <div class="time">
+            <div class="number" id="seconds">0</div>
+            <div class="label">SECONDES</div>
         </div>
 
     </div>
@@ -655,67 +799,263 @@ body{
 </section>
 
 
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section class="intro">
+
+    <h2>
+        Deux jours à Marrakech
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p>
+        Nous avons le plaisir de vous retrouver
+        pour célébrer ensemble un moment précieux
+        et partager deux journées placées sous le signe
+        de l’amour, de la famille et de la fête.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     PROGRAMME
+========================= -->
+
+<section class="program">
+
+    <div class="program-title">
+
+        <div class="section-label">
+            LES FESTIVITÉS
+        </div>
+
+        <div class="gold-line"></div>
+
+        <h2>
+            Le programme
+        </h2>
+
+    </div>
+
+
+    <div class="events">
+
+        <div class="event">
+
+            <div class="event-number">
+                25 MAI
+            </div>
+
+            <h3>
+                Bienvenue
+            </h3>
+
+            <p>
+                Une première journée placée sous le signe
+                du partage et de la convivialité,
+                dans l’esprit chaleureux de notre univers
+                touareg.
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-number">
+                26 MAI
+            </div>
+
+            <h3>
+                Le mariage
+            </h3>
+
+            <p>
+                La journée principale de notre célébration,
+                entourés de nos familles et des personnes
+                qui nous sont chères.
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="event-number">
+                MARRAKECH
+            </div>
+
+            <h3>
+                À suivre…
+            </h3>
+
+            <p>
+                Les informations détaillées,
+                horaires et lieux seront communiqués
+                dans l’invitation officielle.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATIONS
+========================= -->
+
+<section class="info">
+
+    <div class="section-label">
+        QUELQUES INFORMATIONS
+    </div>
+
+    <div class="gold-line"></div>
+
+    <h2>
+        À très bientôt
+    </h2>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h3>
+                Marrakech
+            </h3>
+
+            <p>
+                Maroc
+                <br><br>
+                Une célébration au cœur de
+                la ville ocre.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                Invitation
+            </h3>
+
+            <p>
+                Les détails pratiques,
+                l’adresse et le programme définitif
+                seront communiqués avec
+                l’invitation officielle.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-names">
+        Morwane Joulia &amp; Fatima Akotey
+    </div>
+
+    <div class="footer-date">
+        25 — 26 MAI 2027 · MARRAKECH
+    </div>
+
+    <p>
+        AVEC AMOUR
+    </p>
+
+</footer>
+
+
 <script>
 
 /* =========================
    COMPTE À REBOURS
-   25 MAI 2027
 ========================= */
 
 const weddingDate =
     new Date("May 25, 2027 00:00:00").getTime();
 
 
-function updateCountdown(){
+function countdown(){
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const distance = weddingDate - now;
+    const distance =
+        weddingDate - now;
 
 
     if(distance <= 0){
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        document.getElementById("days").innerText = "0";
+        document.getElementById("hours").innerText = "0";
+        document.getElementById("minutes").innerText = "0";
+        document.getElementById("seconds").innerText = "0";
 
         return;
     }
 
 
     const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
 
     const hours =
         Math.floor(
-            (distance % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
         );
+
 
     const minutes =
         Math.floor(
-            (distance % (1000 * 60 * 60))
-            / (1000 * 60)
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
         );
+
 
     const seconds =
         Math.floor(
-            (distance % (1000 * 60))
-            / 1000
+            (distance %
+            (1000 * 60)) /
+            1000
         );
 
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    document.getElementById("days").innerText = days;
+
+    document.getElementById("hours").innerText = hours;
+
+    document.getElementById("minutes").innerText = minutes;
+
+    document.getElementById("seconds").innerText = seconds;
 }
 
 
-updateCountdown();
+countdown();
 
-setInterval(updateCountdown,1000);
+setInterval(countdown,1000);
 
 </script>
 
