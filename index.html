@@ -3,1059 +3,628 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1d1815">
 
-<title>Morwane Joulia & Fatima Akotey</title>
+<title>Morwane Joulia & Fatima Akotey — Save the Date</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root{
+  --cream:#f7f1e8;
+  --ink:#29231e;
+  --gold:#a47b45;
+  --muted:#74695d;
+  --line:rgba(164,123,69,.35);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Montserrat",Arial,sans-serif;
+  --arabic:"Noto Naskh Arabic",serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
-    background:#f5efe7;
-    color:#2b2622;
-    font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--sans);
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100svh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.08),
-            rgba(0,0,0,.03) 35%,
-            rgba(0,0,0,.30) 65%,
-            rgba(0,0,0,.72)
-        ),
-        url("https://raw.githubusercontent.com/Morwane-Fatima-Mariage2027/save-the-date-fatima-morwane/main/fatima-morwane-hero-ultra-net.jpg");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 35%,
-            rgba(0,0,0,.20) 100%
-        );
-}
-
-/* =========================
-   LANGUES
-========================= */
+/* LANGUES */
 
 .languages{
-    position:absolute;
-    top:28px;
-    right:28px;
-    z-index:5;
-
-    display:flex;
-    gap:14px;
-
-    color:white;
-    font-size:12px;
-    letter-spacing:2px;
+  position:absolute;
+  top:22px;
+  right:22px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  font-size:11px;
+  letter-spacing:2px;
 }
 
-.languages a{
-    color:white;
-    text-decoration:none;
-    opacity:.65;
+.languages button{
+  border:0;
+  background:none;
+  color:white;
+  cursor:pointer;
+  font:inherit;
+  letter-spacing:2px;
+  opacity:.65;
 }
 
-.languages a.active{
-    opacity:1;
-    border-bottom:1px solid white;
-    padding-bottom:4px;
+.languages button.active{
+  opacity:1;
+  border-bottom:1px solid white;
 }
 
-/* =========================
-   HERO CONTENT
-========================= */
+/* PHOTO PRINCIPALE */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+
+  background:
+    linear-gradient(
+      rgba(15,10,6,.08),
+      rgba(15,10,6,.38)
+    ),
+    url("fatima-morwane-hero-ultra-net.jpg") center center / cover no-repeat;
+
+  background-color:#806c58;
+}
 
 .hero-content{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    max-width:900px;
-
-    text-align:center;
-
-    padding:90px 25px 80px;
+  position:relative;
+  z-index:2;
+  width:92%;
+  max-width:950px;
+  padding:70px 20px;
 }
 
-.eyebrow{
-    color:white;
-
-    font-size:13px;
-    letter-spacing:8px;
-    font-weight:300;
-
-    margin-bottom:34px;
+.save{
+  margin:0 0 25px;
+  font-size:11px;
+  letter-spacing:7px;
 }
-
-.ornament{
-    width:90px;
-    height:1px;
-
-    background:rgba(255,255,255,.75);
-
-    margin:0 auto 30px;
-
-    position:relative;
-}
-
-.ornament::after{
-    content:"✦";
-
-    position:absolute;
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-55%);
-
-    color:#e5c68f;
-
-    font-size:13px;
-
-    padding:0 8px;
-}
-
-/* =========================
-   NOMS
-========================= */
 
 .names{
-    color:white;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:clamp(47px,7vw,75px);
-
-    font-weight:400;
-
-    line-height:.92;
-
-    letter-spacing:-1px;
-
-    text-shadow:0 3px 18px rgba(0,0,0,.35);
+  margin:0;
+  font-family:var(--serif);
+  font-size:clamp(48px,7vw,82px);
+  line-height:.92;
+  font-weight:500;
+  letter-spacing:-.5px;
+  text-shadow:0 3px 15px rgba(0,0,0,.35);
 }
 
 .names span{
-    display:block;
+  display:block;
 }
 
 .names .amp{
-    color:#e3c28a;
-    font-style:italic;
-    font-size:.72em;
-    margin:5px 0;
+  font-size:.55em;
+  font-style:italic;
+  margin:7px 0;
 }
 
-/* =========================
-   DATE
-========================= */
-
-.small-line{
-    width:110px;
-    height:1px;
-
-    background:rgba(255,255,255,.8);
-
-    margin:34px auto 28px;
+.line{
+  width:90px;
+  height:1px;
+  background:white;
+  margin:30px auto 24px;
+  opacity:.85;
 }
 
 .date{
-    color:white;
-
-    font-size:17px;
-    letter-spacing:5px;
-
-    margin-bottom:17px;
+  margin:0;
+  font-size:13px;
+  letter-spacing:5px;
 }
 
 .place{
-    color:white;
-
-    font-size:12px;
-    letter-spacing:5px;
+  margin:14px 0 0;
+  font-size:11px;
+  letter-spacing:4px;
 }
 
-/* =========================
-   MESSAGE
-========================= */
-
-.personal-message{
-    width:min(690px,92%);
-
-    margin:48px auto 0;
-
-    padding:25px 28px;
-
-    border:1px solid rgba(255,255,255,.55);
-
-    background:rgba(25,18,13,.27);
-
-    backdrop-filter:blur(4px);
-
-    color:white;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:19px;
-
-    line-height:1.5;
+.arrow{
+  position:absolute;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:19px;
 }
 
-.personal-message strong{
-    font-weight:500;
-}
+/* CONTENU */
 
-.follow{
-    color:white;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:23px;
-    font-style:italic;
-
-    margin-top:30px;
-}
-
-/* =========================
-   SCROLL
-========================= */
-
-.scroll{
-    position:absolute;
-
-    bottom:25px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    z-index:5;
-
-    width:45px;
-    height:45px;
-
-    border:1px solid rgba(255,255,255,.65);
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:22px;
-
-    animation:down 2s infinite;
-}
-
-@keyframes down{
-    0%,100%{transform:translateX(-50%) translateY(0)}
-    50%{transform:translateX(-50%) translateY(7px)}
-}
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown-section{
-    background:#f5efe7;
-
-    padding:85px 20px;
-
-    text-align:center;
-}
-
-.section-label{
-    color:#a1845b;
-
-    font-size:12px;
-
-    letter-spacing:6px;
-
-    font-weight:400;
-}
-
-.gold-line{
-    width:80px;
-    height:1px;
-
-    background:#c6aa7e;
-
-    margin:28px auto 45px;
-
-    position:relative;
-}
-
-.gold-line::after{
-    content:"✦";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    background:#f5efe7;
-
-    color:#b09264;
-
-    padding:0 8px;
-}
-
-.countdown{
-    max-width:700px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-}
-
-.time{
-    border-right:1px solid #d7c6b0;
-
-    padding:0 15px;
-}
-
-.time:last-child{
-    border:none;
-}
-
-.number{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:60px;
-
-    font-weight:400;
-
-    color:#29231f;
+main{
+  max-width:900px;
+  margin:auto;
+  padding:65px 24px 45px;
+  text-align:center;
 }
 
 .label{
-    margin-top:8px;
-
-    color:#7d6c59;
-
-    font-size:9px;
-
-    letter-spacing:3px;
+  margin:0 0 18px;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:5px;
+  font-weight:600;
 }
-
-/* =========================
-   INTRO
-========================= */
 
 .intro{
-    background:#fffaf4;
-
-    padding:100px 25px;
-
-    text-align:center;
+  max-width:780px;
+  margin:auto;
+  font-family:var(--serif);
+  font-size:clamp(26px,4vw,38px);
+  line-height:1.18;
 }
 
-.intro h2,
-.program h2,
-.info h2{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:48px;
-
-    font-weight:400;
-
-    color:#302a25;
-
-    margin-bottom:20px;
+.follow{
+  max-width:650px;
+  margin:28px auto 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
 }
 
-.intro p{
-    max-width:650px;
-
-    margin:auto;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:22px;
-
-    line-height:1.6;
-
-    color:#675b4f;
+.follow strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:25px;
+  font-weight:500;
 }
 
-/* =========================
-   PROGRAMME
-========================= */
+/* COMPTE À REBOURS */
 
-.program{
-    background:#eee3d5;
-
-    padding:100px 25px;
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:60px auto 0;
+  padding:32px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-.program-title{
-    text-align:center;
-    margin-bottom:60px;
+.number{
+  display:block;
+  font-family:var(--serif);
+  font-size:clamp(35px,6vw,56px);
+  line-height:1;
 }
 
-.events{
-    max-width:900px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
+.unit{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:8px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.event{
-    background:rgba(255,255,255,.6);
+/* MESSAGE NOMINATIF */
 
-    padding:40px 28px;
-
-    text-align:center;
-
-    border:1px solid rgba(160,130,90,.22);
+.notice{
+  max-width:720px;
+  margin:55px auto 0;
+  padding:24px 28px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.25);
 }
 
-.event-number{
+.notice-title{
+  margin:0 0 12px;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:600;
+}
+
+.notice-text{
+  margin:0;
+  font-family:var(--serif);
+  font-size:19px;
+  line-height:1.45;
+}
+
+/* FIN */
+
+.closing{
+  padding:65px 20px 20px;
+}
+
+.closing-message{
+  margin:0;
+  font-family:var(--serif);
+  font-size:28px;
+  font-style:italic;
+}
+
+.signature{
+  margin-top:18px;
+  font-family:var(--serif);
+  font-size:28px;
+}
+
+.final-date{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:4px;
+}
+
+/* ARABE */
+
+[dir="rtl"]{
+  font-family:var(--arabic);
+}
+
+[dir="rtl"] .intro,
+[dir="rtl"] .follow,
+[dir="rtl"] .notice-text,
+[dir="rtl"] .closing-message,
+[dir="rtl"] .signature{
+  font-family:var(--arabic);
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .languages{
+    top:18px;
+    right:16px;
+  }
+
+  .save{
+    letter-spacing:5px;
+  }
+
+  .names{
+    font-size:clamp(44px,13vw,68px);
+  }
+
+  .date{
     font-size:11px;
+    letter-spacing:3px;
+  }
 
-    letter-spacing:4px;
-
-    color:#a1845b;
-
-    margin-bottom:20px;
-}
-
-.event h3{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:31px;
-
-    font-weight:400;
-
-    margin-bottom:15px;
-}
-
-.event p{
-    color:#6c6258;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-/* =========================
-   INFORMATIONS
-========================= */
-
-.info{
-    background:#f8f2ea;
-
-    padding:100px 25px;
-
-    text-align:center;
-}
-
-.info-grid{
-    max-width:850px;
-
-    margin:55px auto 0;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-}
-
-.info-card{
-    padding:35px 25px;
-
-    background:white;
-
-    border:1px solid #e3d8ca;
-}
-
-.info-card h3{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:30px;
-
-    font-weight:400;
-
-    margin-bottom:12px;
-}
-
-.info-card p{
-    color:#71665b;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-    background:#28221e;
-
-    color:white;
-
-    padding:70px 20px;
-
-    text-align:center;
-}
-
-.footer-names{
-    font-family:'Cormorant Garamond',serif;
-
-    font-size:42px;
-
-    margin-bottom:15px;
-}
-
-.footer-date{
-    color:#d7bb8d;
-
-    letter-spacing:4px;
-
-    font-size:11px;
-}
-
-.footer p{
-    margin-top:35px;
-
-    color:#aaa098;
-
+  .place{
     font-size:10px;
+    letter-spacing:3px;
+  }
 
-    letter-spacing:2px;
+  .countdown{
+    gap:3px;
+  }
+
+  .number{
+    font-size:35px;
+  }
+
+  .unit{
+    font-size:7px;
+    letter-spacing:1px;
+  }
+
+  .notice{
+    padding:22px 18px;
+  }
+
+  .notice-text{
+    font-size:18px;
+  }
 }
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:650px){
-
-    .languages{
-        top:22px;
-        right:18px;
-        font-size:10px;
-        gap:10px;
-    }
-
-    .hero{
-        background-position:center;
-    }
-
-    .hero-content{
-        padding:105px 18px 85px;
-    }
-
-    .eyebrow{
-        font-size:9px;
-        letter-spacing:5px;
-        margin-bottom:27px;
-    }
-
-    .names{
-        font-size:clamp(39px,11vw,55px);
-        line-height:.94;
-    }
-
-    .names .amp{
-        margin:3px 0;
-    }
-
-    .date{
-        font-size:14px;
-        letter-spacing:3px;
-    }
-
-    .place{
-        font-size:9px;
-        letter-spacing:3px;
-    }
-
-    .personal-message{
-        margin-top:40px;
-        padding:20px 17px;
-        font-size:17px;
-    }
-
-    .follow{
-        font-size:20px;
-    }
-
-    .countdown{
-        grid-template-columns:repeat(2,1fr);
-
-        row-gap:35px;
-    }
-
-    .time:nth-child(2){
-        border:none;
-    }
-
-    .number{
-        font-size:48px;
-    }
-
-    .intro h2,
-    .program h2,
-    .info h2{
-        font-size:40px;
-    }
-
-    .intro p{
-        font-size:19px;
-    }
-
-    .events{
-        grid-template-columns:1fr;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-names{
-        font-size:34px;
-    }
-}
-
 </style>
 </head>
 
-
 <body>
 
-<!-- =========================
-     HERO
-========================= -->
+<header class="hero">
 
-<section class="hero" id="accueil">
+  <nav class="languages">
+    <button class="active" data-language="fr">FR</button>
+    <span>·</span>
+    <button data-language="en">EN</button>
+    <span>·</span>
+    <button data-language="ar">العربية</button>
+  </nav>
 
-    <nav class="languages">
-        <a href="#" class="active">FR</a>
-        <span>·</span>
-        <a href="#">EN</a>
-        <span>·</span>
-        <a href="#">العربية</a>
-    </nav>
+  <div class="hero-content">
 
-
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            SAVE THE DATE
-        </p>
-
-        <div class="ornament"></div>
-
-
-        <h1 class="names">
-
-            <span>
-                Morwane Joulia
-            </span>
-
-            <span class="amp">
-                &amp;
-            </span>
-
-            <span>
-                Fatima Akotey
-            </span>
-
-        </h1>
-
-
-        <div class="small-line"></div>
-
-
-        <p class="date">
-            25 — 26 MAI 2027
-        </p>
-
-        <p class="place">
-            MARRAKECH · MAROC
-        </p>
-
-
-        <div class="personal-message">
-
-            <strong>
-                Ce Save the Date est personnel et nominatif.
-            </strong>
-
-            <br><br>
-
-            Il est exclusivement destiné à la personne qui le reçoit.
-            <br>
-
-            Merci de ne pas le transférer ni le partager,
-            afin de limiter les imprévus et de préserver
-            l’organisation de cet événement.
-
-        </div>
-
-
-        <p class="follow">
-            L’invitation officielle suivra
-        </p>
-
-    </div>
-
-
-    <a href="#countdown" class="scroll">
-        ↓
-    </a>
-
-</section>
-
-
-<!-- =========================
-     COMPTE À REBOURS
-========================= -->
-
-<section class="countdown-section" id="countdown">
-
-    <div class="section-label">
-        LE COMPTE À REBOURS COMMENCE
-    </div>
-
-    <div class="gold-line"></div>
-
-
-    <div class="countdown">
-
-        <div class="time">
-            <div class="number" id="days">0</div>
-            <div class="label">JOURS</div>
-        </div>
-
-        <div class="time">
-            <div class="number" id="hours">0</div>
-            <div class="label">HEURES</div>
-        </div>
-
-        <div class="time">
-            <div class="number" id="minutes">0</div>
-            <div class="label">MINUTES</div>
-        </div>
-
-        <div class="time">
-            <div class="number" id="seconds">0</div>
-            <div class="label">SECONDES</div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     INTRODUCTION
-========================= -->
-
-<section class="intro">
-
-    <h2>
-        Deux jours à Marrakech
-    </h2>
-
-    <div class="gold-line"></div>
-
-    <p>
-        Nous aurons le plaisir de vous retrouver
-        pour célébrer ensemble un moment précieux
-        et partager deux journées placées sous le signe
-        de l’amour, de la famille et de la fête.
+    <p class="save" data-text="save">
+      SAVE THE DATE
     </p>
 
-</section>
+    <h1 class="names">
 
+      <span>Morwane Joulia</span>
 
-<!-- =========================
-     PROGRAMME
-========================= -->
+      <span class="amp">&amp;</span>
 
-<section class="program">
+      <span>Fatima Akotey</span>
 
-    <div class="program-title">
+    </h1>
 
-        <div class="section-label">
-            LES FESTIVITÉS
-        </div>
+    <div class="line"></div>
 
-        <div class="gold-line"></div>
-
-        <h2>
-            Le programme
-        </h2>
-
-    </div>
-
-
-    <div class="events">
-
-        <div class="event">
-
-            <div class="event-number">
-                25 MAI
-            </div>
-
-            <h3>
-                Bienvenue
-            </h3>
-
-            <p>
-                Une première journée placée sous le signe
-                du partage et de la convivialité,
-                dans l’esprit chaleureux de notre univers
-                touareg.
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="event-number">
-                26 MAI
-            </div>
-
-            <h3>
-                Le mariage
-            </h3>
-
-            <p>
-                La journée principale de notre célébration,
-                entourés de nos familles et des personnes
-                qui nous sont chères.
-            </p>
-
-        </div>
-
-
-        <div class="event">
-
-            <div class="event-number">
-                MARRAKECH
-            </div>
-
-            <h3>
-                À suivre…
-            </h3>
-
-            <p>
-                Les informations détaillées,
-                horaires et lieux seront communiqués
-                dans l’invitation officielle.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     INFORMATIONS
-========================= -->
-
-<section class="info">
-
-    <div class="section-label">
-        QUELQUES INFORMATIONS
-    </div>
-
-    <div class="gold-line"></div>
-
-    <h2>
-        À très bientôt
-    </h2>
-
-
-    <div class="info-grid">
-
-        <div class="info-card">
-
-            <h3>
-                Marrakech
-            </h3>
-
-            <p>
-                Maroc
-                <br><br>
-                Une célébration au cœur de
-                la ville ocre.
-            </p>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <h3>
-                Invitation
-            </h3>
-
-            <p>
-                Les détails pratiques,
-                l’adresse et le programme définitif
-                seront communiqués avec
-                l’invitation officielle.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer class="footer">
-
-    <div class="footer-names">
-        Morwane Joulia &amp; Fatima Akotey
-    </div>
-
-    <div class="footer-date">
-        25 — 26 MAI 2027 · MARRAKECH
-    </div>
-
-    <p>
-        AVEC AMOUR
+    <p class="date">
+      25 — 26 MAI 2027
     </p>
 
-</footer>
+    <p class="place" data-text="place">
+      MARRAKECH · MAROC
+    </p>
 
+  </div>
+
+  <div class="arrow">↓</div>
+
+</header>
+
+<main>
+
+  <p class="label" data-text="label">
+    AVEC JOIE
+  </p>
+
+  <p class="intro" data-text="intro">
+
+    Nous aurons le plaisir de vous retrouver
+    pour célébrer ensemble un moment précieux
+    et partager deux journées placées sous les
+    signes de l’amour, de la famille et de la fête
+    à Marrakech.
+
+  </p>
+
+  <div class="follow">
+
+    <strong data-text="follow">
+      À suivre
+    </strong>
+
+    <span data-text="followText">
+      Les informations détaillées, l’heure et le lieu
+      seront communiqués dans l’invitation officielle.
+    </span>
+
+  </div>
+
+  <section class="countdown">
+
+    <div>
+      <span class="number" id="days">000</span>
+      <span class="unit" data-text="days">Jours</span>
+    </div>
+
+    <div>
+      <span class="number" id="hours">00</span>
+      <span class="unit" data-text="hours">Heures</span>
+    </div>
+
+    <div>
+      <span class="number" id="minutes">00</span>
+      <span class="unit" data-text="minutes">Minutes</span>
+    </div>
+
+    <div>
+      <span class="number" id="seconds">00</span>
+      <span class="unit" data-text="seconds">Secondes</span>
+    </div>
+
+  </section>
+
+  <section class="notice">
+
+    <p class="notice-title" data-text="noticeTitle">
+      SAVE THE DATE · PERSONNEL ET NOMINATIF
+    </p>
+
+    <p class="notice-text" data-text="notice">
+      Merci de ne pas le transférer ni le partager,
+      afin de limiter les imprévus et de préserver
+      l’organisation de cet événement.
+    </p>
+
+  </section>
+
+  <footer class="closing">
+
+    <p class="closing-message" data-text="soon">
+      À très bientôt
+    </p>
+
+    <div class="signature" data-text="signature">
+      Avec amour, Morwane &amp; Tatta
+    </div>
+
+    <div class="final-date">
+      25 — 26 MAI 2027 · MARRAKECH
+    </div>
+
+  </footer>
+
+</main>
 
 <script>
 
-/* =========================
-   COMPTE À REBOURS
-========================= */
+/* COMPTE À REBOURS */
 
 const weddingDate =
-    new Date("May 25, 2027 00:00:00").getTime();
+  new Date("2027-05-25T00:00:00+01:00").getTime();
+
+function updateCountdown(){
+
+  const difference =
+    Math.max(0, weddingDate - Date.now());
+
+  const days =
+    Math.floor(difference / 86400000);
+
+  const hours =
+    Math.floor((difference % 86400000) / 3600000);
+
+  const minutes =
+    Math.floor((difference % 3600000) / 60000);
+
+  const seconds =
+    Math.floor((difference % 60000) / 1000);
+
+  document.getElementById("days").textContent =
+    String(days).padStart(3,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
 
 
-function countdown(){
+/* TRADUCTIONS */
 
-    const now =
-        new Date().getTime();
+const translations = {
 
-    const distance =
-        weddingDate - now;
+  fr:{
+    save:"SAVE THE DATE",
+    place:"MARRAKECH · MAROC",
+    label:"AVEC JOIE",
+
+    intro:"Nous aurons le plaisir de vous retrouver pour célébrer ensemble un moment précieux et partager deux journées placées sous les signes de l’amour, de la famille et de la fête à Marrakech.",
+
+    follow:"À suivre",
+
+    followText:"Les informations détaillées, l’heure et le lieu seront communiqués dans l’invitation officielle.",
+
+    days:"Jours",
+    hours:"Heures",
+    minutes:"Minutes",
+    seconds:"Secondes",
+
+    noticeTitle:"SAVE THE DATE · PERSONNEL ET NOMINATIF",
+
+    notice:"Merci de ne pas le transférer ni le partager, afin de limiter les imprévus et de préserver l’organisation de cet événement.",
+
+    soon:"À très bientôt",
+
+    signature:"Avec amour, Morwane & Tatta"
+  },
+
+  en:{
+    save:"SAVE THE DATE",
+    place:"MARRAKECH · MOROCCO",
+    label:"WITH JOY",
+
+    intro:"We will be delighted to celebrate this special moment with you and share two days in Marrakech dedicated to love, family and celebration.",
+
+    follow:"To follow",
+
+    followText:"Detailed information, including the time and venue, will be shared in the official invitation.",
+
+    days:"Days",
+    hours:"Hours",
+    minutes:"Minutes",
+    seconds:"Seconds",
+
+    noticeTitle:"SAVE THE DATE · PERSONAL & NOMINATIVE",
+
+    notice:"Please do not forward or share this Save the Date, in order to limit unforeseen circumstances and preserve the organisation of this event.",
+
+    soon:"See you very soon",
+
+    signature:"With love, Morwane & Tatta"
+  },
+
+  ar:{
+    save:"احفظوا التاريخ",
+    place:"مراكش · المغرب",
+    label:"بكل فرح",
+
+    intro:"يسعدنا أن نلتقي بكم للاحتفال معًا بهذه المناسبة المميزة، وقضاء يومين في مراكش تحت شعار الحب والعائلة والفرح.",
+
+    follow:"يتبع",
+
+    followText:"سيتم إرسال المعلومات التفصيلية، بما في ذلك الموعد والمكان، في الدعوة الرسمية.",
+
+    days:"أيام",
+    hours:"ساعات",
+    minutes:"دقائق",
+    seconds:"ثوانٍ",
+
+    noticeTitle:"حفظ التاريخ · شخصي وباسم المدعو",
+
+    notice:"يرجى عدم إعادة إرسال هذا الإشعار أو مشاركته، للحد من المفاجآت والحفاظ على حسن تنظيم هذا الحدث.",
+
+    soon:"إلى اللقاء قريبًا",
+
+    signature:"مع خالص الحب، موروان وتاتا"
+  }
+
+};
 
 
-    if(distance <= 0){
+function changeLanguage(language){
 
-        document.getElementById("days").innerText = "0";
-        document.getElementById("hours").innerText = "0";
-        document.getElementById("minutes").innerText = "0";
-        document.getElementById("seconds").innerText = "0";
+  const text = translations[language];
 
-        return;
-    }
+  document.documentElement.lang = language;
 
+  document.documentElement.dir =
+    language === "ar" ? "rtl" : "ltr";
 
-    const days =
-        Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
-        );
+  document.querySelectorAll("[data-text]")
+    .forEach(element => {
 
+      const key =
+        element.getAttribute("data-text");
 
-    const hours =
-        Math.floor(
-            (distance %
-            (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-        );
+      element.textContent = text[key];
 
+    });
 
-    const minutes =
-        Math.floor(
-            (distance %
-            (1000 * 60 * 60)) /
-            (1000 * 60)
-        );
+  document.querySelectorAll(".languages button")
+    .forEach(button => {
 
+      button.classList.toggle(
+        "active",
+        button.dataset.language === language
+      );
 
-    const seconds =
-        Math.floor(
-            (distance %
-            (1000 * 60)) /
-            1000
-        );
-
-
-    document.getElementById("days").innerText = days;
-
-    document.getElementById("hours").innerText = hours;
-
-    document.getElementById("minutes").innerText = minutes;
-
-    document.getElementById("seconds").innerText = seconds;
+    });
 }
 
 
-countdown();
+document.querySelectorAll(".languages button")
+  .forEach(button => {
 
-setInterval(countdown,1000);
+    button.addEventListener(
+      "click",
+      () => changeLanguage(button.dataset.language)
+    );
+
+  });
 
 </script>
 
